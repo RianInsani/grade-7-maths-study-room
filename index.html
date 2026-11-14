@@ -52,10 +52,15 @@
   .model-line span{font-size:.72rem}
 }
 @media(max-width:350px){.fact-cards{grid-template-columns:1fr}.topics button{padding:8px}}
+
+.minus-roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:8px;margin-top:12px}
+.minus-roles .card{margin:0;padding:12px}.minus-roles p{margin:3px 0 0}
+.minus-line{display:block;width:100%;max-width:560px;height:auto;margin-bottom:8px}
+.minus-questions label{display:block;margin-bottom:4px}
 </style>
 </head>
 <body>
-<header><div><div class="headerline"><p id="grade">SEMESTER 1 · GRADE 7</p><label id="language-label"><span>Language</span> <select id="language"><option value="en">English</option><option value="id">Bahasa Indonesia</option></select></label></div><h1 id="heading">Maths Study Room</h1><nav id="nav" aria-label="Learning modes"><button data-mode="facts">Number Facts</button><button data-mode="visual">Visual lesson</button><button data-mode="review">Review</button><button data-mode="practice">Exercises</button><button data-mode="exam">Mock exam</button></nav></div></header>
+<header><div><div class="headerline"><p id="grade">SEMESTER 1 · GRADE 7</p><label id="language-label"><span>Language</span> <select id="language"><option value="en">English</option><option value="id">Bahasa Indonesia</option></select></label></div><h1 id="heading">Maths Study Room</h1><nav id="nav" aria-label="Learning modes"><button data-mode="facts">Number Facts</button><button data-mode="minus">Minus &amp; negatives</button><button data-mode="visual">Visual lesson</button><button data-mode="review">Review</button><button data-mode="practice">Exercises</button><button data-mode="exam">Mock exam</button></nav></div></header>
 <main id="main"></main>
 <footer id="sources">Based on the 54-page fraction, decimal, and percentage lesson deck and the four-page ASTS Mathematics 7 Semester I practice sheet from Al Azhar 41 Summarecon Serpong.</footer>
 <script>
@@ -1056,6 +1061,7 @@ const visuals = [
   ]
 ];
 const translations = {
+  minus:'Minus dan bilangan negatif',
   facts:'Fakta bilangan',
   visual:'Belajar visual', review:'Ringkasan', practice:'Latihan', exam:'Simulasi ujian',
   'Maths Study Room':'Ruang Belajar Matematika', 'SEMESTER 1 · GRADE 7':'SEMESTER 1 · KELAS 7',
@@ -1072,7 +1078,7 @@ const translations = {
   'Show solving steps':'Lihat langkah penyelesaian', 'Step':'Langkah',
   'Try an exercise':'Coba latihan', 'Predict what changes, then use the controls to reveal each part.':'Tebak apa yang akan berubah, lalu gunakan tombol untuk membuka tiap tahap.'
 };
-const modeNames = {facts:"Number Facts",visual:'Visual lesson',review:'Review',practice:'Exercises',exam:'Mock exam'};
+const modeNames = {minus:"Minus & negatives",facts:"Number Facts",visual:'Visual lesson',review:'Review',practice:'Exercises',exam:'Mock exam'};
 let language = 'en';
 try { if (localStorage.getItem('maths-language') === 'id') language = 'id'; } catch {}
 const tr = (en,id) => language === 'id' ? id : en;
@@ -1523,6 +1529,69 @@ function renderFactsFocus() {
   main.querySelector('#fact-heading').focus();
 }
 
+const minusExamples = [
+  ['Thermometer','Termometer','The temperature is −4 °C. Does the minus describe a position or a change?','Suhu menunjukkan −4 °C. Apakah tanda minus menunjukkan posisi atau perubahan?',0,-4,'−4 < 0','The minus belongs to the number. −4 °C is four degrees below zero. The arrow measures where it is relative to zero.','Tanda minus melekat pada bilangan. −4 °C berarti empat derajat di bawah nol. Panah menunjukkan letaknya terhadap nol.','position'],
+  ['Elevator','Lift','You start on floor 2 and go down 5 floors. Predict where you stop.','Kamu mulai di lantai 2 lalu turun 5 lantai. Tebak lantai tempat kamu berhenti.',2,-3,'2 − 5 = −3','The first minus is an operation. Move five steps left on the number line: two to reach zero, then three more. The minus in −3 names the basement floor.','Minus pertama adalah operasi. Bergerak lima langkah ke kiri: dua langkah ke nol, lalu tiga langkah lagi. Minus pada −3 menunjukkan lantai bawah tanah.','move'],
+  ['Bank balance','Saldo rekening','Your balance is −6 thousand rupiah. You deposit 4 thousand. Are you back at zero?','Saldomu −6 ribu rupiah. Kamu menyetor 4 ribu. Apakah saldomu kembali ke nol?',-6,-2,'−6 + 4 = −2','The deposit moves the balance toward zero. Four of the six thousand rupiah owed are covered, so two thousand are still owed.','Setoran mendekatkan saldo ke nol. Empat dari enam ribu rupiah utang tertutup, sehingga masih ada utang dua ribu rupiah.','move'],
+  ['Opposite side','Sisi berlawanan','A marker is four steps left of zero. Where is its opposite?','Sebuah penanda berada empat langkah di kiri nol. Di mana posisi lawannya?',-4,4,'−(−4) = 4','The outer minus means take the opposite. Reflect −4 across zero. Both points are four steps from zero.','Minus di luar kurung berarti ambil lawannya. Cerminkan −4 terhadap nol. Kedua titik berjarak empat langkah dari nol.','reflect'],
+  ['Score correction','Koreksi skor','Your score is 2 after a 3-point penalty. The referee cancels that penalty. Predict your score.','Skormu 2 setelah penalti 3 poin. Wasit membatalkan penalti itu. Tebak skor barumu.',2,5,'2 − (−3) = 2 + 3 = 5','The −3 penalty had lowered the score. Removing that negative change reverses it. Move three steps right to restore the points.','Penalti −3 menurunkan skor. Menghapus perubahan negatif membalik arahnya. Bergerak tiga langkah ke kanan untuk mengembalikan poin.','move'],
+  ['Submarine depths','Kedalaman kapal selam','One submarine is at −2 m, another at −6 m. Which position is greater?','Satu kapal selam berada di −2 m, satu lagi di −6 m. Posisi mana yang lebih besar?',-6,-2,'−6 < −2;   −2 − (−6) = 4','−2 is farther right and closer to the surface, so it is greater. The two positions are four meters apart.','−2 berada lebih ke kanan dan lebih dekat ke permukaan, jadi nilainya lebih besar. Jarak kedua posisi adalah empat meter.','compare'],
+  ['Repeated losses','Kerugian berulang','A game takes away 2 points each round. Starting at zero, what is the change after 3 rounds?','Dalam permainan, kamu kehilangan 2 poin tiap ronde. Mulai dari nol, berapa perubahan setelah 3 ronde?',0,-6,'3 × (−2) = (−2) + (−2) + (−2) = −6','Read the product as three changes of −2. Each round moves two steps left. Splitting that total loss into three equal rounds gives −6 ÷ 3 = −2.','Baca perkalian itu sebagai tiga perubahan sebesar −2. Setiap ronde bergerak dua langkah ke kiri. Membagi kerugian itu ke tiga ronde sama besar memberi −6 ÷ 3 = −2.','repeat']
+];
+const minusQuiz = [
+  ['Write the number for 5 degrees below zero.','Tulis bilangan untuk 5 derajat di bawah nol.',-5,'−5 < 0'],
+  ['Start on floor 1 and go down 4 floors.','Mulai di lantai 1 lalu turun 4 lantai.',-3,'1 − 4 = −3'],
+  ['Find the opposite of −7.','Cari lawan dari −7.',7,'−(−7) = 7'],
+  ['Your score is −2. Cancel a penalty of −5 points.','Skormu −2. Batalkan penalti bernilai −5 poin.',3,'−2 − (−5) = −2 + 5 = 3'],
+  ['Which number is greater, −8 or −3?','Bilangan mana yang lebih besar, −8 atau −3?',-3,'−8 < −3'],
+  ['You lose 3 points in each of 4 rounds. What is the total change?','Kamu kehilangan 3 poin pada setiap ronde selama 4 ronde. Berapa perubahan totalnya?',-12,'4 × (−3) = −12']
+];
+let minusIndex = 0;
+let minusRevealed = false;
+let minusAnswers = [];
+let minusSubmitted = false;
+
+function minusLine(start,end,kind) {
+  const x = value => 20 + (value+6)*24;
+  const isMove = ['move','position','repeat'].includes(kind);
+  const stops = kind === 'repeat' ? [0,-2,-4,-6] : [start,end];
+  const dots = kind === 'repeat' ? stops : [start,end];
+  const dash = kind === 'reflect' ? 'stroke-dasharray="4 3"' : '';
+  const arrow = isMove ? 'marker-end="url(#minus-arrow)"' : '';
+  const segment = (a,b) => `<path d="M ${x(a)} 40 Q ${(x(a)+x(b))/2} 6 ${x(b)} 40" ${arrow} ${dash}/>`;
+  return `<svg class="minus-line" viewBox="0 0 304 91" role="img" aria-label="${tr('Number line','Garis bilangan')} · ${start} → ${end}">
+    <defs><marker id="minus-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#643eb5"/></marker></defs>
+    <path d="M20 49 H284" stroke="#625479" stroke-width="2"/>
+    ${Array.from({length:12},(_,i)=>{const n=i-6;const pos=x(n);return `<path d="M${pos} 45 v8" stroke="#625479"/><text x="${pos}" y="72" text-anchor="middle" font-size="11" font-weight="${n===0?800:500}">${n<0?'−'+(-n):n}</text>`;}).join('')}
+    <g fill="none" stroke="#643eb5" stroke-width="2">${stops.slice(1).map((stop,i)=>segment(stops[i],stop)).join('')}</g>
+    ${dots.map((n,i)=>`<circle cx="${x(n)}" cy="49" r="4.5" fill="${i===0?'#166047':'#643eb5'}"/>`).join('')}</svg>`;
+}
+function minusHTML() {
+  const [en,id,questionEn,questionId,start,end,equation,whyEn,whyId,kind] = minusExamples[minusIndex];
+  const correct = i => minusAnswers[i]?.trim() && Number(minusAnswers[i]) === minusQuiz[i][2];
+  const score = minusQuiz.filter((_,i)=>correct(i)).length;
+  return `<h2>${t('minus')}</h2>
+    <div class="minus-roles">
+    <div class="card"><strong>${tr('A number’s sign','Tanda bilangan')}</strong><p>−4 · ${tr('a position below zero','posisi di bawah nol')}</p></div>
+    <div class="card"><strong>${tr('An operation','Operasi')}</strong><p>2 − 5 · ${tr('subtract 5 from 2','kurangi 2 dengan 5')}</p></div>
+    <div class="card"><strong>${tr('The opposite','Lawan bilangan')}</strong><p>−(−4) · ${tr('the opposite of −4','lawan dari −4')}</p></div></div>
+    <div class="grid"><aside class="topics" aria-label="${tr('Minus examples','Contoh tanda minus')}">${minusExamples.map(([name,other],i)=>`<button data-minus="${i}" aria-current="${i===minusIndex}">${tr(name,other)}</button>`).join('')}</aside>
+    <article class="card"><h3>${tr(en,id)}</h3><p>${tr(questionEn,questionId)}</p>
+    <button type="button" id="minus-reveal" aria-expanded="${minusRevealed}">${minusRevealed?tr('Hide the explanation','Sembunyikan penjelasan'):tr('Reveal the visual','Lihat visualnya')}</button>
+    ${minusRevealed?`<div class="example">${minusLine(start,end,kind)}<p class="mathline">${equation}</p><p>${tr(whyEn,whyId)}</p></div>`:''}</article></div>
+    <details class="card" id="minus-rules"><summary>${tr('Sign rules for multiplication and division','Aturan tanda untuk perkalian dan pembagian')}</summary>
+    <p>${tr('Think of multiplying by −1 as reflecting across zero. One reflection changes the sign. Two reflections return you to the starting side.','Bayangkan perkalian dengan −1 sebagai pencerminan terhadap nol. Satu pencerminan mengubah tanda. Dua pencerminan mengembalikanmu ke sisi semula.')}</p>
+    <div class="mathline">6 → −6 → 6</div>
+    <p>${tr('For nonzero factors, opposite signs give a negative product and matching signs give a positive product. For exact division, check the sign by multiplying back.','Untuk faktor tak nol, tanda berbeda menghasilkan perkalian negatif, dan tanda sama menghasilkan perkalian positif. Untuk pembagian habis, periksa tanda dengan mengalikan kembali.')}</p>
+    <div class="mathline">(−2) × (−3) = 6 · 6 ÷ (−3) = −2</div></details>
+    <article class="card"><h3 id="minus-quiz-heading" tabindex="-1">${tr('Quick check','Cek pemahaman')}</h3><form id="minus-quiz">
+    ${minusSubmitted?`<p class="feedback good" role="status">${tr('Score','Nilai')} <strong>${score} / ${minusQuiz.length}</strong></p>`:''}
+    <ol class="fact-questions minus-questions">${minusQuiz.map(([prompt,local,answer,reason],i)=>`<li><label for="minus-q${i}">${tr(prompt,local)}</label>
+    <input type="number" step="1" id="minus-q${i}" name="${i}" value="${minusAnswers[i]??''}" ${minusSubmitted?'readonly':''}>
+    ${minusSubmitted?`<p class="feedback ${correct(i)?'good':'bad'}">${correct(i)?t('Correct.'):`${t('Answer:')} ${answer}`} · ${reason}</p>`:''}</li>`).join('')}</ol>
+    ${minusSubmitted?`<button type="button" id="minus-retry">${t('Try again')}</button>`:`<button class="primary" type="submit">${t('Check answer')}</button>`}</form></article>`;
+}
+
 const main = document.querySelector('#main');
 let mode = 'facts';
 let topic = 0;
@@ -1620,7 +1689,7 @@ function render() {
   document.querySelector('#sources').textContent = tr(
     'Based on the 54-page lesson deck and the four-page ASTS practice sheet from Al Azhar 41 Summarecon Serpong.',
     'Berdasarkan 54 slide pelajaran dan empat halaman lembar latihan ASTS dari Al Azhar 41 Summarecon Serpong.');
-  main.innerHTML = mode === 'facts' ? factsHTML() : mode === 'visual' ? visualHTML() : mode === 'review' ? reviewHTML() : mode === 'practice' ? practiceHTML() : examHTML();
+  main.innerHTML = mode === 'facts' ? factsHTML() : mode === 'minus' ? minusHTML() : mode === 'visual' ? visualHTML() : mode === 'review' ? reviewHTML() : mode === 'practice' ? practiceHTML() : examHTML();
   if (mode === 'exam' && !submitted) updateExamProgress();
 }
 document.querySelector('#nav').addEventListener('click', event => {
@@ -1642,6 +1711,23 @@ function showStage(index) {
 }
 main.addEventListener('click', event => {
   const { id, dataset } = event.target;
+  if (dataset.minus !== undefined) {
+    minusIndex = Number(dataset.minus);
+    minusRevealed = false;
+    render();
+    main.querySelector(`[data-minus="${minusIndex}"]`).focus();
+  }
+  if (id === 'minus-reveal') {
+    minusRevealed = !minusRevealed;
+    render();
+    main.querySelector('#minus-reveal').focus();
+  }
+  if (id === 'minus-retry') {
+    minusAnswers = [];
+    minusSubmitted = false;
+    render();
+    main.querySelector('#minus-q0').focus();
+  }
   if (dataset.fact !== undefined) {
     factTopic = Number(dataset.fact);
     factQuiz = false;
@@ -1682,6 +1768,7 @@ main.addEventListener('click', event => {
 });
 main.addEventListener('input', event => {
   const input = event.target;
+  if (input.form?.id === 'minus-quiz') minusAnswers[Number(input.name)] = input.value;
   if (input.form?.id === 'fact-form') factState[factTopic].answers[Number(input.name.slice(5))] = input.value;
 });
 main.addEventListener('change', event => {
@@ -1701,6 +1788,11 @@ main.addEventListener('change', event => {
 });
 main.addEventListener('submit', event => {
   event.preventDefault();
+  if (event.target.id === 'minus-quiz') {
+    minusSubmitted = true;
+    render();
+    main.querySelector('#minus-quiz-heading').focus();
+  }
   if (event.target.id === 'fact-form') {
     factState[factTopic].submitted = true;
     renderFactsFocus();
