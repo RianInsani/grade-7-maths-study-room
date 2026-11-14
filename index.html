@@ -1,0 +1,1736 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grade 7 Maths · Semester 1</title>
+<style>
+:root{color-scheme:light;--ink:#202641;--muted:#515a76;--paper:#f5f4fa;--accent:#4527a0;--line:#dcd8eb;--tint:#eee9ff;--green:#155942;--red:#8b292a}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,sans-serif}header{background:#201643;color:white}header>div,main,footer{max-width:1060px;margin:auto;padding:30px clamp(16px,5vw,54px)}header p{margin:0;color:#d9cdfb;font-size:.85rem;font-weight:700}h1{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.055em;line-height:1.05;margin:8px 0 22px}h2{font-size:1.9rem;letter-spacing:-.04em;margin:0 0 8px;line-height:1.2}h3{margin-top:0}p{margin:0 0 12px}nav,.actions{display:flex;gap:8px;flex-wrap:wrap}button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:10px 15px;font:inherit;font-weight:650;cursor:pointer}button:hover{background:var(--tint)}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #9268fc;outline-offset:3px}nav button{border-color:#655684;background:transparent;color:white}nav button:hover,nav button[aria-current=page]{background:#e6dcff;color:#241350;border-color:#e6dcff}.primary{background:var(--accent);color:white;border-color:var(--accent)}.primary:hover{background:#342083}button:disabled{opacity:.5;cursor:default}.grid{display:grid;grid-template-columns:minmax(190px,1fr) minmax(0,3fr);gap:18px;margin-top:20px}.topics{display:flex;flex-direction:column;gap:6px}.topics button{text-align:left}.topics button[aria-current=true]{background:var(--tint);border-color:#9073d7;color:var(--accent)}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:clamp(16px,4vw,28px);margin:16px 0}.grid .card{margin:0;min-width:0}.example{background:#f4f0ff;border-left:4px solid #8c68de;border-radius:6px;padding:14px;margin:16px 0}.example p:last-child{margin:0}.small,footer{color:var(--muted);font-size:.9rem}.source{font-size:.8rem;font-weight:700;color:var(--accent);margin-bottom:10px}.options{display:grid;gap:8px}label.choice{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px;cursor:pointer}label.choice:has(input:checked){border-color:var(--accent);background:var(--tint)}input{accent-color:var(--accent)}fieldset{border:0;padding:0;margin:0;min-width:0}legend{font-weight:700;margin-bottom:10px;padding:0}select{font:inherit;color:inherit;padding:6px;max-width:100%}.feedback{padding:12px;border-radius:8px;background:#f2eefc;margin:12px 0}.good{color:var(--green);background:#e8f5ec}.bad{color:var(--red);background:#fff0ef}.score{font-size:2.8rem;line-height:1.1;font-weight:750;color:var(--accent);margin:10px 0}.exam-list{margin:0;padding:0;list-style:none}.exam-list li{margin:10px 0;padding:10px;border-radius:8px}.topics .source{margin:8px 0 0}summary{cursor:pointer;font-weight:650}footer{padding-top:0}@media(max-width:660px){.grid{grid-template-columns:1fr}.topics{display:grid;grid-template-columns:1fr 1fr}.topics .source{grid-column:1/-1}} 
+
+.headerline{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.headerline label{font-size:.85rem;color:#d9cdfb}.headerline select{background:white;color:var(--ink);border-radius:8px;border:0}
+.visual-actions button[aria-pressed=true]{background:var(--tint);color:var(--accent);border-color:#9073d7}
+.visual-example{margin:18px 0;padding:15px;background:#f8f6ff;border:1px solid var(--line);border-radius:12px}
+.blocks{display:flex;gap:3px;margin:0 0 10px;max-width:440px}.blocks span{flex:1;height:36px;background:white;border:1px solid #9f8bc9;border-radius:3px}.blocks .filled{background:#7956c4;border-color:#7956c4}
+.hundred{display:grid;grid-template-columns:repeat(10,1fr);max-width:248px}.hundred span{height:auto;aspect-ratio:1}
+.mathline,.math-diagram{font-size:clamp(1rem,2.8vw,1.22rem);font-weight:700;color:var(--accent);overflow-wrap:anywhere}
+.math-diagram,.tracks{padding:12px;background:white;border-radius:8px;margin-bottom:8px}
+.place-grid,.numberline{display:flex;gap:3px;margin:8px 0 14px}.place-grid div,.numberline span{flex:1;min-width:0;border:1px solid var(--line);background:white;border-radius:5px;text-align:center;padding:6px 0}.place-grid b{display:block;font-size:1.5rem}.place-grid span{font-size:.72rem;overflow-wrap:anywhere}.numberline span{font-size:clamp(.62rem,2vw,.94rem)}.numberline .marked{background:#e4d8ff;border-color:#7956c4;font-weight:750}
+.solution{margin-top:12px;padding:12px;background:#f7f4ff;color:var(--ink);border:1px solid var(--line);border-radius:10px}.solution ol{padding-left:1.8em}.solution li{background:white;border-left:3px solid #9171d5;margin:8px 0;padding:8px}.solution .mathline{margin:6px 0 2px}.solution p{margin:0}
+.exam-list>li{overflow-wrap:anywhere}.exam-list .solution li{border-radius:0}
+
+.solution-options{margin:12px 0 0}.solution > ol > li p,.solution .visual-intro{margin:6px 0 2px}
+.solution-answer{padding:10px 12px;background:#e8e0fa;border-radius:8px;color:#321e68}
+.question-model{padding:12px;background:#fff;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.model-row + .model-row{margin-top:10px}.model-tiles{display:flex;gap:0;margin:5px 0;max-width:560px}.model-tiles span{flex:1;min-width:0;height:28px;border:0;border-radius:1px;background:#fff;box-shadow:inset 0 0 0 1px #a89ac5}.model-tiles .filled{background:#7956c4;box-shadow:inset 0 0 0 1px #fff8}.model-tiles .marked{background:repeating-linear-gradient(135deg,#fdf1d6 0 4px,#e0a45f 4px 7px);box-shadow:inset 0 0 0 1px #a76525}.model-tiles .partial{background:linear-gradient(to right,#7956c4 50%,white 50%)}
+.model-stack{font:700 1.2rem/1.6 monospace;width:max-content;text-align:right;white-space:pre;margin:auto;color:var(--accent)}.model-stack div:last-child{border-top:2px solid}
+.solution ol.model-flow{display:flex;list-style:none;flex-wrap:wrap;gap:8px;padding:0;margin:0;counter-reset:flow}.solution ol.model-flow li{counter-increment:flow;margin:0;background:var(--tint);font-weight:700;border-radius:7px}.solution ol.model-flow li::before{content:counter(flow) " · ";color:var(--accent)}
+.model-line{position:relative;margin:24px 28px 44px;border-top:3px solid #7956c4}.model-line span{position:absolute;top:-5px;transform:translateX(-50%);border-top:7px solid #7956c4;padding-top:4px;font-size:.84rem;font-weight:700}.model-line span:nth-child(2){padding-top:20px}
+
+.fact-scroll{overflow:auto;margin-top:16px;max-width:100%;border:1px solid var(--line);border-radius:8px}
+.fact-table{border-collapse:separate;border-spacing:0;width:100%;text-align:center;font-variant-numeric:tabular-nums}
+.fact-table caption{text-align:left;padding:10px;font-size:.9rem;color:var(--muted)}
+.fact-table th,.fact-table td{padding:7px 9px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);white-space:nowrap}
+.fact-table th{background:var(--tint);color:var(--accent)}.fact-table tbody tr:nth-child(even) td{background:#faf8ff}
+.fact-table th:first-child{position:sticky;left:0}.fact-narrow td:nth-child(2){font-weight:750}
+.fact-questions{padding-left:28px}.fact-questions li{padding:8px 0}.fact-questions label{display:inline-block;min-width:7ch;font-weight:750}
+.fact-questions input{max-width:8ch;padding:6px;border-radius:6px;border:1px solid #9d90b5;font:inherit}
+
+.fact-mobile{display:none}
+.fact-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:12px 0}
+.fact-cards li{padding:10px 6px;background:var(--tint);border:1px solid var(--line);border-radius:8px;text-align:center;font-variant-numeric:tabular-nums}
+@media(max-width:660px){
+  header>div{padding-top:18px;padding-bottom:16px}h1{margin-bottom:15px}
+  nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  nav button{white-space:normal;padding:8px;line-height:1.25}
+  button,select,.choice{min-height:44px}
+  main{padding-top:20px}.grid{gap:12px}
+  .fact-mobile{display:block;margin-top:16px}.fact-wide{display:none}
+  .fact-narrow th,.fact-narrow td{white-space:normal;padding:7px 5px}
+  .fact-narrow th:first-child{position:static}
+  .model-line span{font-size:.72rem}
+}
+@media(max-width:350px){.fact-cards{grid-template-columns:1fr}.topics button{padding:8px}}
+</style>
+</head>
+<body>
+<header><div><div class="headerline"><p id="grade">SEMESTER 1 · GRADE 7</p><label id="language-label"><span>Language</span> <select id="language"><option value="en">English</option><option value="id">Bahasa Indonesia</option></select></label></div><h1 id="heading">Maths Study Room</h1><nav id="nav" aria-label="Learning modes"><button data-mode="facts">Number Facts</button><button data-mode="visual">Visual lesson</button><button data-mode="review">Review</button><button data-mode="practice">Exercises</button><button data-mode="exam">Mock exam</button></nav></div></header>
+<main id="main"></main>
+<footer id="sources">Based on the 54-page fraction, decimal, and percentage lesson deck and the four-page ASTS Mathematics 7 Semester I practice sheet from Al Azhar 41 Summarecon Serpong.</footer>
+<script>
+'use strict';
+const topics = [
+  ['Fractions','Lesson slides, pp. 1–10',
+   'For addition and subtraction, rewrite fractions using a common denominator and combine the numerators. For multiplication, multiply the numerators and denominators. To divide, multiply by the reciprocal of the second fraction.',
+   ['5/6 − 1/4 = 10/12 − 3/12 = 7/12.',
+    '2 1/3 ÷ 7/9 = 7/3 × 9/7 = 3.',
+    'Between 1/2 and 2/3, write 6/12 and 8/12. The fraction 7/12 lies between them.',
+    'If Ardi spends 1/3 and saves 2/5 of Rp 120,000, he has 1 − 1/3 − 2/5 = 4/15 left, or Rp 32,000.']],
+  ['Decimal forms','Lesson slides, pp. 11–23',
+   'Divide the numerator by the denominator to write a fraction as a decimal. Compare decimals from left to right by place value. Trailing zeros preserve the value. To round, look immediately right of the place you want to keep. Increase the kept digit if that next digit is 5 or above, carrying when needed.',
+   ['1.23 = 1.230, which is greater than 1.156 because 2 tenths exceeds 1 tenth.',
+    '6.995 rounds to 7.00 to the nearest hundredth.',
+    'Let x = 0.7565656… with 56 repeating after the 7. Then 1000x = 756.565656… and 10x = 7.565656…. Subtract to get 990x = 749, so x = 749/990.']],
+  ['Decimal operations','Lesson slides, pp. 24–33',
+   'Line up decimal points for addition or subtraction. For multiplication, count how many decimal places the factors have altogether and use that count in the product. For division, multiply both numbers by the same power of 10 until the divisor is a whole number.',
+   ['12.45 + 3.70 = 16.15.  5.320 − 3.958 = 1.362.',
+    '0.6 × 0.25 = 0.150. The product uses three decimal places before dropping the trailing zero.',
+    '4.68 ÷ 1.2 = 46.8 ÷ 12 = 3.9.']],
+  ['Percentages','Lesson slides, pp. 34–48',
+   'Percent means out of 100. Divide by 100 to convert a percentage to a decimal, or write it over 100 and simplify to make a fraction. To express a number as a percentage, find how many hundredths it represents. To find a percentage of a group, first divide the part by the whole.',
+   ['50.2% = 0.502 = 251/500. Likewise, 150% = 1.5 = 3/2.',
+    'If 10 of 25 students wear glasses, 10 ÷ 25 = 0.4 = 40%. The other students make up 60%.',
+    'If 12 girls are 30% of the class, the whole class has 12 ÷ 0.30 = 40 students. The remaining group has 40 − 12 = 28 students.']],
+  ['Integers, powers & roots','ASTS p. 1, Q1–3 and Q5–8',
+   'Use zero as your reference for temperatures and sea level. Subtracting a negative is the same as adding its opposite. Work through grouping, powers and roots, multiplication and division from left to right, then addition and subtraction from left to right.',
+   ['A diver starts 35 m below sea level, goes up 19 m and down 55 m. The position is −35 + 19 − 55 = −71 m.',
+    '(−16) − (−5) + 9 = −16 + 5 + 9 = −2.',
+    '√441 − (−2)³ + ∛27 + 4² = 21 − (−8) + 3 + 16 = 48.',
+    'Of 50 quiz questions, 38 are correct and 46 were attempted. There are 8 wrong and 4 blank. With +4, −2 and −1 points respectively, the score is 132.']],
+  ['Divisibility, LCM & GCF','ASTS pp. 1–2, Q4 and Q9–10',
+   'For 2 check the last digit is even, for 3 check the digit sum, for 4 check the last two digits, and for 5 look for a final 0 or 5. A number is divisible by 6 when it passes both the 2 and 3 checks.',
+   ['The least common multiple (LCM) of 4, 6 and 9 is 36. Lessons taken at these intervals coincide again 36 days after August 2, on September 7.',
+    'The greatest common factor (GCF) of 90, 150 and 60 is 30. Using all the supplies gives 30 identical packages, each with 3 L of oil, 5 kg of rice and 2 kg of sugar.']],
+  ['Assessment fractions','ASTS pp. 2–4, Q11–20',
+   'Use equivalent fractions to compare and order, or cross-multiply when denominators are positive. Convert a mixed number to an improper fraction by multiplying the whole part by the denominator and adding the numerator. Divide a total by the amount per group to find the number of groups.',
+   ['12/19 > 5/8 because 12 × 8 = 96 and 5 × 19 = 95.',
+    '61/3 = 20 1/3 because 61 ÷ 3 gives 20 remainder 1.',
+    'A container with 10 3/5 L fills 26 bottles of 2/5 L each. The quotient is 26 1/2 bottle capacities, so there is 1/5 L left.',
+    'For the amount of water after pouring and spilling, write 2 2/5 + 3 1/2 − 1 1/3.']]
+];
+
+// Each item contains a topic index, prompt, choices and correct choice index.
+const practice = [
+ [0,'Calculate 7/10 − 1/4.',['3/10','9/20','6/20','11/20'],1],
+ [0,'Which fraction lies strictly between 3/4 and 4/5?',['29/40','30/40','31/40','32/40'],2],
+ [0,'Calculate 1 1/2 × 4/9.',['2/3','4/9','5/9','3/2'],0],
+ [0,'Calculate 5/6 ÷ 10/9.',['4/3','25/27','3/4','5/9'],2],
+ [1,'Convert 0.4333… to a fraction. Only the 3 repeats.',['13/30','43/100','4/9','43/99'],0],
+ [1,'Round 9.995 to the nearest hundredth and show two decimal places.',['9.99','9.90','10.0','10.00'],3],
+ [2,'Calculate 6.8 + 0.735.',['7.535','6.815','7.415','7.635'],0],
+ [2,'Calculate 8.4 − 2.085.',['6.385','6.315','5.315','6.415'],1],
+ [2,'Calculate 0.4 × 0.35.',['1.4','0.014','0.14','0.75'],2],
+ [2,'Calculate 7.56 ÷ 1.2.',['0.63','6.3','63','9.072'],1],
+ [3,'Write 12.5% as a decimal and simplest fraction.',['0.125 and 1/8','1.25 and 5/4','0.0125 and 1/80','0.12 and 3/25'],0],
+ [3,'18 students make up 45% of a group. How many students are there in total?',['25','36','45','40'],3],
+ [3,'24 of 32 students are on the swimming team. What percentage is outside the team?',['24%','75%','8%','25%'],3],
+ [4,'It is −6°C, warms by 9°C, then cools by 11°C. What is the final temperature?',['14°C','−8°C','8°C','−26°C'],1],
+ [4,'Evaluate (−18) ÷ 3 × (−2) + 4.',['16','7','−8','−12'],0],
+ [4,'Evaluate √144 − (−2)³ + ∛27.',['7','17','23','29'],2],
+ [5,'Which of 2, 3, 4, 5 and 6 divide 12,540 exactly?',['2 and 5','3 and 5','All five','2, 4 and 5'],2],
+ [5,'Clubs meet every 4, 6 and 10 days. They meet today. When do they next meet together?',['20 days','30 days','120 days','60 days'],3],
+ [6,'Order 6/25, 6/31 and 6/20 from least to greatest.',['6/20 < 6/25 < 6/31','6/31 < 6/25 < 6/20','6/25 < 6/20 < 6/31','6/31 < 6/20 < 6/25'],1],
+ [6,'Convert 47/6 to a mixed number.',['7 5/6','8 1/6','7 1/6','6 5/7'],0],
+];
+const exam = [
+ [4,'A diver starts 24 m below sea level, rises 15 m, then descends 18 m. Where is the diver?',['3 m below','27 m below','27 m above','57 m below'],1],
+ [4,'Let P = (−4) × 5 − (−8) and Q = 6 − (−3). Find 2P + Q.',['−33','−3','−15','33'],2],
+ [4,'Evaluate √196 − (−2)³ + ∛64.',['10','6','18','26'],3],
+ [4,'In a 30-question quiz, 27 are attempted and 21 are correct. Correct answers earn 4 points, wrong answers lose 2 and blanks lose 1. Find the score.',['69','72','75','81'],0],
+ [5,'Which of 2, 3, 4, 5 and 6 divide 2,340 exactly?',['2, 3 and 5','All five','2, 4 and 5','2, 3 and 6'],1],
+ [5,'Events repeat every 6, 8 and 12 days. How many days until they coincide again?',['48','18','12','24'],3],
+ [5,'What is the maximum number of identical packages using all of 48 kg rice, 36 L oil and 60 kg sugar in whole units?',['12','6','16','24'],0],
+ [6,'Which pair both equal 5/6?',['10/12 and 20/26','15/18 and 15/20','10/12 and 35/42','20/26 and 35/42'],2],
+ [6,'A tank has 7 1/4 L. Each bottle holds 1/2 L. How many bottles fill completely and what remains?',['15 bottles, 0 L','14 bottles, 1/4 L','14 bottles, 1/2 L','13 bottles, 1/4 L'],1],
+ [6,'Start with 2 1/2 L, add 1 3/4 L and spill 1 1/3 L. How much remains?',['2 11/12 L','3 7/12 L','2 1/12 L','4 1/4 L'],0],
+ [0,'Calculate 1 1/2 × 4/9 ÷ 2/3.',['2/3','4/9','3/2','1'],3],
+ [1,'Arrange the numbers from least to greatest.',['0.48 < 0.405 < 1/2','1/2 < 0.405 < 0.48','0.405 < 0.48 < 1/2','0.405 < 1/2 < 0.48'],2],
+ [2,'Calculate 5.46 ÷ 1.4.',['0.39','3.9','39','4.9'],1],
+ [3,'Write 7/8 as a percentage.',['78%','0.875%','8.75%','87.5%'],3],
+];
+const topicsId = [
+  [
+    "Pecahan",
+    "Slide pelajaran, hlm. 1–10",
+    "Untuk menambah atau mengurangi pecahan, samakan penyebut lalu hitung pembilangnya. Untuk mengalikan, kalikan pembilang dan penyebut. Untuk membagi, kalikan dengan kebalikan pecahan pembagi.",
+    [
+      "5/6 − 1/4 = 10/12 − 3/12 = 7/12.",
+      "2 1/3 ÷ 7/9 = 7/3 × 9/7 = 3.",
+      "Ubah 1/2 dan 2/3 menjadi 6/12 dan 8/12. Di antaranya ada 7/12.",
+      "Jika Ardi memakai 1/3 dan menabung 2/5 dari Rp120.000, sisanya 1 − 1/3 − 2/5 = 4/15, yaitu Rp32.000."
+    ]
+  ],
+  [
+    "Bentuk desimal",
+    "Slide pelajaran, hlm. 11–23",
+    "Bagi pembilang dengan penyebut untuk memperoleh desimal. Bandingkan nilai tempat dari kiri. Nol di belakang bagian desimal tidak mengubah nilainya. Untuk membulatkan, lihat digit tepat di kanan tempat tujuan. Digit 5 atau lebih menaikkan digit sebelumnya, dengan simpanan bila perlu.",
+    [
+      "1,23 = 1,230 > 1,156 karena 2 persepuluh lebih besar dari 1 persepuluh.",
+      "6,995 dibulatkan menjadi 7,00 hingga perseratus.",
+      "Misalkan x = 0,7565656… dengan 56 berulang. Maka 1000x = 756,565656… dan 10x = 7,565656…. Selisihnya 990x = 749, sehingga x = 749/990."
+    ]
+  ],
+  [
+    "Operasi desimal",
+    "Slide pelajaran, hlm. 24–33",
+    "Sejajarkan koma saat menjumlahkan atau mengurangkan. Saat mengalikan, jumlahkan banyak tempat desimal kedua faktor. Saat membagi, kalikan kedua bilangan dengan pangkat 10 yang sama sampai pembaginya bulat.",
+    [
+      "12,45 + 3,70 = 16,15. 5,320 − 3,958 = 1,362.",
+      "0,6 × 0,25 = 0,150. Hasilnya memiliki tiga tempat desimal sebelum nol akhir dibuang.",
+      "4,68 ÷ 1,2 = 46,8 ÷ 12 = 3,9."
+    ]
+  ],
+  [
+    "Persentase",
+    "Slide pelajaran, hlm. 34–48",
+    "Persen berarti per seratus. Bagi dengan 100 untuk menulis desimal, atau tulis sebagai pecahan berpenyebut 100 lalu sederhanakan. Untuk mengubah bilangan ke persen, cari banyak perseratus yang setara. Untuk persentase suatu kelompok, bagi jumlah bagian dengan jumlah seluruhnya.",
+    [
+      "50,2% = 0,502 = 251/500. Demikian juga, 150% = 1,5 = 3/2.",
+      "Jika 10 dari 25 siswa memakai kacamata, 10 ÷ 25 = 0,4 = 40%. Sisanya 60%.",
+      "Jika 12 siswi adalah 30% dari kelas, jumlah siswa 12 ÷ 0,30 = 40. Sisanya 40 − 12 = 28 siswa."
+    ]
+  ],
+  [
+    "Bilangan bulat, pangkat, dan akar",
+    "ASTS hlm. 1, soal 1–3 dan 5–8",
+    "Gunakan nol sebagai acuan untuk suhu dan permukaan laut. Mengurangi bilangan negatif sama dengan menjumlahkan lawannya. Urutan operasi ialah tanda kurung, pangkat dan akar, kali dan bagi dari kiri ke kanan, lalu tambah dan kurang dari kiri ke kanan.",
+    [
+      "Penyelam mulai 35 m di bawah laut, naik 19 m dan turun 55 m. Posisinya −35 + 19 − 55 = −71 m.",
+      "(−16) − (−5) + 9 = −16 + 5 + 9 = −2.",
+      "√441 − (−2)³ + ∛27 + 4² = 21 − (−8) + 3 + 16 = 48.",
+      "Dari 50 soal, 46 dijawab dan 38 benar, sehingga 8 salah dan 4 kosong. Nilainya 38 × 4 − 8 × 2 − 4 = 132."
+    ]
+  ],
+  [
+    "Keterbagian, KPK, dan FPB",
+    "ASTS hlm. 1–2, soal 4 dan 9–10",
+    "Untuk 2 periksa digit terakhirnya genap. Untuk 3 periksa jumlah digit. Untuk 4 periksa dua digit terakhir. Untuk 5 periksa digit akhir 0 atau 5. Bilangan habis dibagi 6 jika habis dibagi 2 dan 3.",
+    [
+      "Kelipatan persekutuan terkecil dari 4, 6, dan 9 adalah 36. Jadwal bertemu lagi 36 hari setelah 2 Agustus, yaitu 7 September.",
+      "Faktor persekutuan terbesar dari 90, 150, dan 60 adalah 30. Ada 30 paket, masing-masing berisi 3 L minyak, 5 kg beras, dan 2 kg gula."
+    ]
+  ],
+  [
+    "Pecahan dalam soal ASTS",
+    "ASTS hlm. 2–4, soal 11–20",
+    "Untuk membandingkan pecahan berpenyebut positif, samakan penyebut atau gunakan perkalian silang. Untuk mengubah pecahan campuran, kalikan bagian bulat dengan penyebut lalu tambahkan pembilang. Bagi jumlah seluruhnya dengan ukuran satu kelompok untuk mencari banyak kelompok.",
+    [
+      "12/19 > 5/8 karena 12 × 8 = 96 dan 5 × 19 = 95.",
+      "61/3 = 20 1/3 karena 61 ÷ 3 menghasilkan 20 sisa 1.",
+      "Air 10 3/5 L mengisi 26 botol berkapasitas 2/5 L. Hasil baginya 26 1/2 kapasitas botol, sehingga tersisa 1/5 L.",
+      "Untuk sisa air setelah ditambah dan tumpah, tulis 2 2/5 + 3 1/2 − 1 1/3."
+    ]
+  ]
+];
+const solutions = [
+  [
+    [
+      "Samakan penyebut.",
+      "Use a common denominator.",
+      "LCM(10, 4) = 20"
+    ],
+    [
+      "Ubah kedua pecahan ke per dua puluh.",
+      "Rewrite both fractions in twentieths.",
+      "7/10 = 14/20; 1/4 = 5/20"
+    ],
+    [
+      "Kurangkan pembilang dan pertahankan penyebut.",
+      "Subtract the numerators and keep the denominator.",
+      "14/20 − 5/20 = 9/20"
+    ]
+  ],
+  [
+    [
+      "Samakan penyebut menjadi 40 agar ada bilangan di antara pembilang.",
+      "Use denominator 40 to leave room between the numerators.",
+      "3/4 = 30/40; 4/5 = 32/40"
+    ],
+    [
+      "Pilih pembilang di antara 30 dan 32.",
+      "Choose a numerator between 30 and 32.",
+      "30 < 31 < 32"
+    ],
+    [
+      "Periksa urutan dengan penyebut yang sama.",
+      "Check the order with the same denominator.",
+      "30/40 < 31/40 < 32/40"
+    ]
+  ],
+  [
+    [
+      "Ubah pecahan campuran menjadi pecahan biasa.",
+      "Convert the mixed number to an improper fraction.",
+      "1 1/2 = (1 × 2 + 1)/2 = 3/2"
+    ],
+    [
+      "Kalikan pembilang dan penyebut.",
+      "Multiply the numerators and denominators.",
+      "3/2 × 4/9 = 12/18"
+    ],
+    [
+      "Sederhanakan dengan membagi keduanya dengan 6.",
+      "Simplify by dividing both by 6.",
+      "12/18 = 2/3"
+    ]
+  ],
+  [
+    [
+      "Balik pecahan pembagi dan ganti bagi menjadi kali.",
+      "Take the reciprocal of the divisor and multiply.",
+      "5/6 ÷ 10/9 = 5/6 × 9/10"
+    ],
+    [
+      "Kalikan pembilang dan penyebut.",
+      "Multiply the numerators and denominators.",
+      "(5 × 9)/(6 × 10) = 45/60"
+    ],
+    [
+      "Bagi pembilang dan penyebut dengan 15.",
+      "Divide numerator and denominator by 15.",
+      "45/60 = 3/4"
+    ]
+  ],
+  [
+    [
+      "Geser koma agar kedua bilangan memiliki ekor berulang yang sama.",
+      "Shift the decimal point to align the repeating tails.",
+      "x = 0.4333… → 10x = 4.333…; 100x = 43.333…"
+    ],
+    [
+      "Kurangkan untuk menghilangkan ekor berulang.",
+      "Subtract to cancel the repeating tails.",
+      "100x − 10x = 43.333… − 4.333… = 39"
+    ],
+    [
+      "Bagi dengan 90 lalu sederhanakan dengan faktor 3.",
+      "Divide by 90, then simplify by a factor of 3.",
+      "90x = 39 → x = 39/90 = 13/30"
+    ]
+  ],
+  [
+    [
+      "Tentukan tempat perseratus dan lihat angka di kanannya.",
+      "Find the hundredths place and look one digit to its right.",
+      "9.995 → 5"
+    ],
+    [
+      "Angka 5 membuat perseratus naik. Teruskan simpanan melalui angka 9.",
+      "The 5 rounds the hundredths up. Carry through the 9s.",
+      "9.99 + 0.01 = 10.00"
+    ],
+    [
+      "Tampilkan dua angka di belakang koma untuk perseratus.",
+      "Keep two decimal places to show hundredths.",
+      "10.00"
+    ]
+  ],
+  [
+    [
+      "Tambahkan nol agar tempat desimal sejajar.",
+      "Pad with zeros to align decimal places.",
+      "6.8 = 6.800"
+    ],
+    [
+      "Jumlahkan bagian desimal dengan satuan yang sama.",
+      "Add the decimal parts in the same units.",
+      "800/1000 + 735/1000 = 1535/1000"
+    ],
+    [
+      "Gabungkan dengan bagian bulat dan teruskan simpanan.",
+      "Combine with the whole part and carry the extra one.",
+      "6 + 1.535 = 7.535"
+    ]
+  ],
+  [
+    [
+      "Samakan banyak tempat desimal.",
+      "Match the number of decimal places.",
+      "8.4 = 8.400"
+    ],
+    [
+      "Ubah keduanya menjadi perseribu, lalu kurangkan.",
+      "Treat both as thousandths, then subtract.",
+      "8400 − 2085 = 6315"
+    ],
+    [
+      "Kembalikan satuan perseribu ke bentuk desimal.",
+      "Write the thousandths as a decimal.",
+      "6315/1000 = 6.315"
+    ]
+  ],
+  [
+    [
+      "Kalikan angka tanpa koma terlebih dahulu.",
+      "Multiply the digits as whole numbers first.",
+      "4 × 35 = 140"
+    ],
+    [
+      "Jumlahkan banyak tempat desimal kedua faktor.",
+      "Add the decimal-place counts of the two factors.",
+      "1 + 2 = 3"
+    ],
+    [
+      "Letakkan koma tiga tempat dari kanan.",
+      "Place the decimal point three places from the right.",
+      "140/1000 = 0.140 = 0.14"
+    ]
+  ],
+  [
+    [
+      "Kalikan kedua bilangan dengan 10 agar pembaginya bulat.",
+      "Multiply both numbers by 10 to make the divisor whole.",
+      "7.56 ÷ 1.2 = 75.6 ÷ 12"
+    ],
+    [
+      "Ambil hasil bagi bulat dan hitung sisanya.",
+      "Take the whole-number quotient and calculate the remainder.",
+      "12 × 6 = 72; 75.6 − 72 = 3.6"
+    ],
+    [
+      "Bagi sisa dengan 12, lalu jumlahkan.",
+      "Divide the remainder by 12 and add.",
+      "3.6 ÷ 12 = 0.3; 6 + 0.3 = 6.3"
+    ]
+  ],
+  [
+    [
+      "Persen berarti per seratus. Bagi dengan 100.",
+      "Percent means per hundred. Divide by 100.",
+      "12.5% = 12.5 ÷ 100 = 0.125"
+    ],
+    [
+      "Tulis desimal sebagai perseribu.",
+      "Write the decimal in thousandths.",
+      "0.125 = 125/1000"
+    ],
+    [
+      "Bagi pembilang dan penyebut dengan 125.",
+      "Divide both numerator and denominator by 125.",
+      "125/1000 = 1/8"
+    ]
+  ],
+  [
+    [
+      "Tulis 45% sebagai desimal.",
+      "Write 45% as a decimal.",
+      "45/100 = 0.45"
+    ],
+    [
+      "Bagian sama dengan desimal dikali jumlah seluruhnya.",
+      "The part equals the decimal times the whole.",
+      "18 = 0.45 × total"
+    ],
+    [
+      "Bagi dengan 0,45. Periksa dengan perkalian balik.",
+      "Divide by 0.45. Check by multiplying back.",
+      "18 ÷ 0.45 = 40; 0.45 × 40 = 18"
+    ]
+  ],
+  [
+    [
+      "Cari banyak siswa di luar tim.",
+      "Find the number of students outside the team.",
+      "32 − 24 = 8"
+    ],
+    [
+      "Bagi bagian dengan jumlah seluruh siswa.",
+      "Divide the part by the whole group.",
+      "8/32 = 1/4"
+    ],
+    [
+      "Tulis sebagai per seratus.",
+      "Write the fraction in hundredths.",
+      "1/4 = 25/100 = 25%"
+    ]
+  ],
+  [
+    [
+      "Mulai dari suhu negatif dan tambahkan kenaikannya.",
+      "Start at the negative temperature and add the rise.",
+      "−6 + 9 = 3 °C"
+    ],
+    [
+      "Kurangi suhu dengan 11 derajat.",
+      "Subtract the 11-degree drop.",
+      "3 − 11 = −8 °C"
+    ],
+    [
+      "Tanda negatif berarti di bawah nol.",
+      "The negative sign means below zero.",
+      "−8 °C"
+    ]
+  ],
+  [
+    [
+      "Kerjakan pembagian dan perkalian dari kiri ke kanan.",
+      "Work through division and multiplication from left to right.",
+      "(−18) ÷ 3 = −6"
+    ],
+    [
+      "Dua faktor negatif menghasilkan bilangan positif.",
+      "Two negative factors give a positive product.",
+      "(−6) × (−2) = 12"
+    ],
+    [
+      "Kerjakan penjumlahan terakhir.",
+      "Finish with the addition.",
+      "12 + 4 = 16"
+    ]
+  ],
+  [
+    [
+      "Hitung akar kuadrat, pangkat tiga, dan akar pangkat tiga.",
+      "Evaluate the square root, cube and cube root.",
+      "√144 = 12; (−2)³ = −8; ∛27 = 3"
+    ],
+    [
+      "Kurangi bilangan negatif dengan menjumlahkan lawannya.",
+      "Subtract the negative by adding its opposite.",
+      "12 − (−8) + 3 = 12 + 8 + 3"
+    ],
+    [
+      "Jumlahkan dari kiri ke kanan.",
+      "Add from left to right.",
+      "20 + 3 = 23"
+    ]
+  ],
+  [
+    [
+      "Periksa digit terakhir untuk 2 dan 5.",
+      "Check the last digit for 2 and 5.",
+      "0 → 2, 5"
+    ],
+    [
+      "Periksa jumlah digit untuk 3 dan dua digit terakhir untuk 4.",
+      "Check the digit sum for 3 and the final two digits for 4.",
+      "1 + 2 + 5 + 4 + 0 = 12; 40 ÷ 4 = 10"
+    ],
+    [
+      "Karena habis dibagi 2 dan 3, bilangan itu juga habis dibagi 6.",
+      "Passing both 2 and 3 also gives divisibility by 6.",
+      "2, 3, 4, 5, 6"
+    ]
+  ],
+  [
+    [
+      "Uraikan ketiga selang hari menjadi faktor prima.",
+      "Factor all three intervals into primes.",
+      "4 = 2²; 6 = 2 × 3; 10 = 2 × 5"
+    ],
+    [
+      "Untuk KPK, ambil pangkat tertinggi dari setiap faktor prima.",
+      "For the LCM, take the highest power of each prime.",
+      "2² × 3 × 5"
+    ],
+    [
+      "Kalikan dan periksa kelipatan tiap selang.",
+      "Multiply and check it is a multiple of each interval.",
+      "60 ÷ 4 = 15; 60 ÷ 6 = 10; 60 ÷ 10 = 6"
+    ]
+  ],
+  [
+    [
+      "Ketiga pecahan memiliki pembilang 6.",
+      "All three fractions have numerator 6.",
+      "6/25; 6/31; 6/20"
+    ],
+    [
+      "Urutkan penyebut dari terbesar. Semakin banyak bagian, semakin kecil ukuran tiap bagian.",
+      "Order denominators from largest. More equal parts means a smaller piece.",
+      "31 > 25 > 20"
+    ],
+    [
+      "Tulis pecahan dari terkecil ke terbesar.",
+      "Write the fractions from least to greatest.",
+      "6/31 < 6/25 < 6/20"
+    ]
+  ],
+  [
+    [
+      "Bagi 47 dengan 6. Kelipatan terbesar yang tidak melebihi 47 adalah 42.",
+      "Divide 47 by 6. The largest multiple within 47 is 42.",
+      "6 × 7 = 42"
+    ],
+    [
+      "Hitung sisanya.",
+      "Calculate the remainder.",
+      "47 − 42 = 5"
+    ],
+    [
+      "Gunakan hasil bagi sebagai bagian bulat dan sisa sebagai pembilang.",
+      "Use the quotient as the whole part and the remainder as the numerator.",
+      "47/6 = 7 5/6"
+    ]
+  ],
+  [
+    [
+      "Gunakan permukaan laut sebagai nol. Kedalaman awal bernilai negatif.",
+      "Use sea level as zero. The starting depth is negative.",
+      "−24 m"
+    ],
+    [
+      "Bergerak ke atas menambah posisi.",
+      "Rising adds to the position.",
+      "−24 + 15 = −9 m"
+    ],
+    [
+      "Bergerak ke bawah mengurangi posisi. Terjemahkan tanda negatif sebagai di bawah permukaan.",
+      "Descending subtracts. Read the negative sign as below sea level.",
+      "−9 − 18 = −27 m"
+    ]
+  ],
+  [
+    [
+      "Kerjakan perkalian dan pengurangan untuk P.",
+      "Evaluate multiplication and subtraction for P.",
+      "P = −20 − (−8) = −20 + 8 = −12"
+    ],
+    [
+      "Kurangi bilangan negatif dengan menjumlahkan lawannya.",
+      "Subtract the negative by adding its opposite.",
+      "Q = 6 − (−3) = 9"
+    ],
+    [
+      "Substitusikan P dan Q, lalu kalikan sebelum menjumlahkan.",
+      "Substitute P and Q, then multiply before adding.",
+      "2(−12) + 9 = −24 + 9 = −15"
+    ]
+  ],
+  [
+    [
+      "Cari bilangan yang kuadratnya 196 dan kubusnya 64.",
+      "Find the numbers whose square is 196 and cube is 64.",
+      "14² = 196; 4³ = 64"
+    ],
+    [
+      "Hitung pangkat tiga dari bilangan negatif.",
+      "Cube the negative number.",
+      "(−2) × (−2) × (−2) = −8"
+    ],
+    [
+      "Masukkan hasil, lalu ubah pengurangan negatif menjadi penjumlahan.",
+      "Substitute and change subtraction of a negative to addition.",
+      "14 − (−8) + 4 = 14 + 8 + 4 = 26"
+    ]
+  ],
+  [
+    [
+      "Cari soal salah dan soal kosong.",
+      "Count wrong and blank answers.",
+      "27 − 21 = 6; 30 − 27 = 3"
+    ],
+    [
+      "Kalikan setiap jumlah dengan nilai per soal.",
+      "Multiply each count by its point value.",
+      "21 × 4 = 84; 6 × (−2) = −12; 3 × (−1) = −3"
+    ],
+    [
+      "Jumlahkan ketiga kontribusi.",
+      "Add the three contributions.",
+      "84 − 12 − 3 = 69"
+    ]
+  ],
+  [
+    [
+      "Periksa digit terakhir untuk 2 dan 5.",
+      "Check the last digit for 2 and 5.",
+      "0 → 2, 5"
+    ],
+    [
+      "Periksa jumlah digit untuk 3 dan dua digit terakhir untuk 4.",
+      "Check the digit sum for 3 and the last two digits for 4.",
+      "2 + 3 + 4 + 0 = 9; 40 ÷ 4 = 10"
+    ],
+    [
+      "Karena habis dibagi 2 dan 3, bilangan itu juga habis dibagi 6.",
+      "Passing both 2 and 3 also gives divisibility by 6.",
+      "2, 3, 4, 5, 6"
+    ]
+  ],
+  [
+    [
+      "Uraikan selang hari menjadi faktor prima.",
+      "Factor the intervals into primes.",
+      "6 = 2 × 3; 8 = 2³; 12 = 2² × 3"
+    ],
+    [
+      "Ambil pangkat tertinggi dari setiap faktor prima.",
+      "Take the highest power of each prime.",
+      "2³ × 3 = 24"
+    ],
+    [
+      "Periksa bahwa 24 habis dibagi ketiga selang.",
+      "Check that 24 is divisible by all three intervals.",
+      "24 ÷ 6 = 4; 24 ÷ 8 = 3; 24 ÷ 12 = 2"
+    ]
+  ],
+  [
+    [
+      "Uraikan semua jumlah persediaan menjadi faktor prima.",
+      "Factor all three supply quantities.",
+      "48 = 2⁴ × 3; 36 = 2² × 3²; 60 = 2² × 3 × 5"
+    ],
+    [
+      "Ambil faktor bersama dengan pangkat terendah.",
+      "Take the shared primes with the lowest powers.",
+      "2² × 3 = 12"
+    ],
+    [
+      "Bagi persediaan dengan FPB untuk memeriksa isi paket.",
+      "Divide each supply by the GCF to check the package contents.",
+      "48 ÷ 12 = 4; 36 ÷ 12 = 3; 60 ÷ 12 = 5"
+    ]
+  ],
+  [
+    [
+      "Sederhanakan 10/12 dan 35/42.",
+      "Reduce 10/12 and 35/42.",
+      "(10 ÷ 2)/(12 ÷ 2) = 5/6; (35 ÷ 7)/(42 ÷ 7) = 5/6"
+    ],
+    [
+      "Periksa pecahan pengecoh.",
+      "Check the distractors.",
+      "20/26 = 10/13; 15/20 = 3/4"
+    ],
+    [
+      "Pilih pasangan yang kedua anggotanya bernilai 5/6.",
+      "Choose the pair in which both are equal to 5/6.",
+      "10/12 = 35/42 = 5/6"
+    ]
+  ],
+  [
+    [
+      "Ubah volume ke pecahan biasa dan bagi dengan kapasitas botol.",
+      "Convert the total to an improper fraction and divide by one bottle’s capacity.",
+      "29/4 ÷ 1/2 = 29/4 × 2 = 29/2"
+    ],
+    [
+      "Pisahkan botol penuh dari bagian botol.",
+      "Separate the full bottles from the partial bottle.",
+      "29/2 = 14 1/2"
+    ],
+    [
+      "Ubah setengah kapasitas botol kembali ke liter.",
+      "Convert half a bottle’s capacity back to liters.",
+      "1/2 × 1/2 L = 1/4 L"
+    ]
+  ],
+  [
+    [
+      "Gunakan tambah untuk air masuk dan kurang untuk air tumpah.",
+      "Add incoming water and subtract the spill.",
+      "2 1/2 + 1 3/4 − 1 1/3"
+    ],
+    [
+      "Ubah ke pecahan biasa lalu samakan penyebut.",
+      "Convert to improper fractions, then use a common denominator.",
+      "5/2 + 7/4 − 4/3 = 30/12 + 21/12 − 16/12"
+    ],
+    [
+      "Hitung pembilang dan ubah hasil ke pecahan campuran.",
+      "Combine the numerators and convert to a mixed number.",
+      "35/12 = 2 11/12 L"
+    ]
+  ],
+  [
+    [
+      "Ubah pecahan campuran menjadi pecahan biasa.",
+      "Convert the mixed number to an improper fraction.",
+      "1 1/2 = 3/2"
+    ],
+    [
+      "Kalikan dari kiri ke kanan.",
+      "Multiply first, working from left to right.",
+      "3/2 × 4/9 = 12/18 = 2/3"
+    ],
+    [
+      "Kalikan dengan kebalikan pembagi.",
+      "Multiply by the reciprocal of the divisor.",
+      "2/3 ÷ 2/3 = 2/3 × 3/2 = 1"
+    ]
+  ],
+  [
+    [
+      "Ubah pecahan ke bentuk desimal.",
+      "Convert the fraction to a decimal.",
+      "1/2 = 0.5"
+    ],
+    [
+      "Tampilkan semua bilangan hingga perseribu.",
+      "Write all values to the thousandths place.",
+      "0.405; 0.480; 0.500"
+    ],
+    [
+      "Karena bagian bulatnya sama, bandingkan perseribuan.",
+      "The whole parts match, so compare the thousandths.",
+      "405 < 480 < 500 → 0.405 < 0.48 < 1/2"
+    ]
+  ],
+  [
+    [
+      "Kalikan kedua bilangan dengan 10 agar pembaginya bulat.",
+      "Multiply both numbers by 10 to make the divisor whole.",
+      "5.46 ÷ 1.4 = 54.6 ÷ 14"
+    ],
+    [
+      "Ambil hasil bagi bulat dan cari sisanya.",
+      "Take the whole-number quotient and find the remainder.",
+      "14 × 3 = 42; 54.6 − 42 = 12.6"
+    ],
+    [
+      "Bagi sisa dengan 14 lalu jumlahkan.",
+      "Divide the remainder by 14 and add.",
+      "12.6 ÷ 14 = 0.9; 3 + 0.9 = 3.9"
+    ]
+  ],
+  [
+    [
+      "Bagi pembilang dengan penyebut.",
+      "Divide the numerator by the denominator.",
+      "7 ÷ 8 = 0.875"
+    ],
+    [
+      "Hitung banyak perseratus yang setara.",
+      "Find how many hundredths that represents.",
+      "0.875 = 87.5/100"
+    ],
+    [
+      "Gunakan tanda persen untuk menyatakan per seratus.",
+      "Use the percent sign to mean per hundred.",
+      "87.5%"
+    ]
+  ]
+];
+const promptsId = [
+  "Hitung 7/10 − 1/4.",
+  "Pecahan mana yang berada di antara 3/4 dan 4/5?",
+  "Hitung 1 1/2 × 4/9.",
+  "Hitung 5/6 ÷ 10/9.",
+  "Ubah 0,4333… menjadi pecahan. Hanya angka 3 yang berulang.",
+  "Bulatkan 9,995 ke perseratus terdekat dan tulis dua angka di belakang koma.",
+  "Hitung 6,8 + 0,735.",
+  "Hitung 8,4 − 2,085.",
+  "Hitung 0,4 × 0,35.",
+  "Hitung 7,56 ÷ 1,2.",
+  "Tulis 12,5% sebagai desimal dan pecahan paling sederhana.",
+  "Jika 18 siswa merupakan 45% dari kelompok, berapa jumlah seluruh siswa?",
+  "Dari 32 siswa, 24 bergabung dengan tim renang. Berapa persen siswa di luar tim?",
+  "Suhu awal −6 °C, naik 9 °C, lalu turun 11 °C. Berapa suhu akhirnya?",
+  "Hitung (−18) ÷ 3 × (−2) + 4.",
+  "Hitung √144 − (−2)³ + ∛27.",
+  "Manakah dari 2, 3, 4, 5, dan 6 yang membagi habis 12.540?",
+  "Tiga klub bertemu setiap 4, 6, dan 10 hari. Mereka bertemu hari ini. Kapan mereka akan bertemu bersama lagi?",
+  "Urutkan 6/25, 6/31, dan 6/20 dari yang terkecil.",
+  "Ubah 47/6 menjadi pecahan campuran.",
+  "Penyelam mulai 24 m di bawah permukaan laut, naik 15 m, lalu turun 18 m. Di mana posisinya sekarang?",
+  "Jika P = (−4) × 5 − (−8) dan Q = 6 − (−3), hitung 2P + Q.",
+  "Hitung √196 − (−2)³ + ∛64.",
+  "Dari 30 soal kuis, 27 dijawab dan 21 benar. Jawaban benar mendapat 4 poin, salah dikurangi 2 poin, dan kosong dikurangi 1 poin. Berapa nilainya?",
+  "Manakah dari 2, 3, 4, 5, dan 6 yang membagi habis 2.340?",
+  "Tiga kegiatan berulang setiap 6, 8, dan 12 hari. Berapa hari sampai ketiganya kembali bersamaan?",
+  "Berapa paket identik terbanyak yang dapat dibuat dari 48 kg beras, 36 L minyak, dan 60 kg gula, jika semua persediaan digunakan dalam satuan utuh?",
+  "Pasangan manakah yang kedua pecahannya senilai dengan 5/6?",
+  "Tangki berisi 7 1/4 L air. Kapasitas setiap botol 1/2 L. Berapa botol yang terisi penuh dan berapa sisa air?",
+  "Awalnya ada 2 1/2 L air. Tambahkan 1 3/4 L lalu tumpahkan 1 1/3 L. Berapa yang tersisa?",
+  "Hitung 1 1/2 × 4/9 ÷ 2/3.",
+  "Urutkan bilangan dari yang terkecil.",
+  "Hitung 5,46 ÷ 1,4.",
+  "Tulis 7/8 sebagai persen."
+];
+const visuals = [
+  [
+    [
+      "Slices must be the same size before you combine them.",
+      "Ukuran potongan harus sama sebelum digabungkan.",
+      "Each bar is one whole. The same shaded length can have two different fraction names.",
+      "Setiap batang bernilai satu utuh. Panjang arsiran yang sama dapat ditulis dengan dua pecahan.",
+      "One half",
+      "Satu per dua",
+      "1/2",
+      "1/2"
+    ],
+    [
+      "Cut each half into two equal pieces. The shaded amount stays the same.",
+      "Bagi setiap setengah menjadi dua bagian sama besar. Ukuran arsiran tetap sama.",
+      "The new pieces are quarters, so you can now add another quarter.",
+      "Potongan baru berukuran seperempat. Sekarang kamu dapat menambah seperempat lagi.",
+      "Equal pieces",
+      "Potongan sama besar",
+      "1/2 = 2/4",
+      "2/4"
+    ],
+    [
+      "Count three shaded quarters. The denominator tells you how many equal pieces make the whole.",
+      "Hitung tiga bagian yang diarsir. Penyebut menunjukkan banyak potongan sama besar dalam satu utuh.",
+      "To subtract, remove shaded pieces. For a fraction of a fraction, take a part of the shaded part. For division, count how many pieces of the divisor’s size fit.",
+      "Untuk mengurangi, hapus sebagian arsiran. Untuk perkalian pecahan, ambil sebagian dari arsiran. Untuk membagi, hitung berapa potongan berukuran sama dengan pembagi yang muat.",
+      "Add a quarter",
+      "Tambah seperempat",
+      "2/4 + 1/4 = 3/4",
+      "3/4"
+    ]
+  ],
+  [
+    [
+      "Track the decimal places.",
+      "Amati nilai tempat desimal.",
+      "In 1.236, the 2 counts tenths, the 3 counts hundredths, and the 6 counts thousandths.",
+      "Pada 1,236, angka 2 menunjukkan persepuluh, 3 perseratus, dan 6 perseribu.",
+      "Read the places",
+      "Baca nilai tempat",
+      "1 + 2/10 + 3/100 + 6/1000",
+      "1.236"
+    ],
+    [
+      "For comparing, match place values from left to right. For rounding, keep the place requested and look one digit to its right.",
+      "Untuk membandingkan, periksa nilai tempat dari kiri. Untuk pembulatan, lihat satu digit di kanan tempat yang diminta.",
+      "For 1.236 rounded to hundredths, 6 increases the hundredths digit from 3 to 4.",
+      "Pada 1,236 yang dibulatkan ke perseratus, angka 6 menaikkan digit 3 menjadi 4.",
+      "Round the hundredths",
+      "Bulatkan ke perseratus",
+      "1.236 → 1.24",
+      "1.236 → 1.24"
+    ],
+    [
+      "A repeating decimal has an endless repeating tail. Write two multiples whose tails match and subtract to cancel the tails.",
+      "Desimal berulang memiliki ekor angka yang berulang tanpa akhir. Tulis dua kelipatan dengan ekor yang sama lalu kurangkan agar ekornya hilang.",
+      "For x = 0.333…, 10x = 3.333…. Subtract and divide by 9.",
+      "Untuk x = 0,333…, 10x = 3,333…. Kurangkan lalu bagi dengan 9.",
+      "Cancel a repeating tail",
+      "Hilangkan ekor berulang",
+      "10x − x = 3 → x = 3/9 = 1/3",
+      "3.333… − 0.333… → 3"
+    ]
+  ],
+  [
+    [
+      "Line up units of the same size.",
+      "Sejajarkan satuan yang sama besar.",
+      "Tenths go under tenths and hundredths under hundredths. A trailing zero shows an empty place.",
+      "Persepuluh di bawah persepuluh dan perseratus di bawah perseratus. Nol di belakang menunjukkan tempat yang kosong.",
+      "Add by place",
+      "Jumlahkan menurut tempat",
+      "2.4 + 1.35 = 2.40 + 1.35 = 3.75",
+      "2.40 + 1.35 → 3.75"
+    ],
+    [
+      "Each decimal place in a factor represents a division by 10. Multiplying combines those divisions.",
+      "Setiap tempat desimal pada faktor mewakili pembagian dengan 10. Saat mengalikan, pembagian itu digabungkan.",
+      "For 0.6 × 0.25, multiply 6 × 25 and then divide by 1000.",
+      "Untuk 0,6 × 0,25, kalikan 6 × 25 lalu bagi dengan 1000.",
+      "Multiply and rescale",
+      "Kalikan dan atur skala",
+      "6/10 × 25/100 = 150/1000 = 0.15",
+      "6 × 25 → 150 → 0.150"
+    ],
+    [
+      "Scale both numbers by the same amount to keep a quotient equal.",
+      "Kalikan kedua bilangan dengan faktor yang sama agar hasil baginya tetap.",
+      "Multiply both by 10 so the divisor becomes 12. Then divide normally.",
+      "Kalikan keduanya dengan 10 agar pembagi menjadi 12. Lalu bagi seperti biasa.",
+      "Make the divisor whole",
+      "Ubah pembagi menjadi bilangan bulat",
+      "4.68 ÷ 1.2 = 46.8 ÷ 12 = 3.9",
+      "4.68 ÷ 1.2 → 46.8 ÷ 12"
+    ]
+  ],
+  [
+    [
+      "One square stands for one hundredth of the whole.",
+      "Satu kotak mewakili satu perseratus dari keseluruhan.",
+      "Shade 25 out of 100 squares. The shaded area is one quarter of the grid. Each full row stands for 10%.",
+      "Arsir 25 dari 100 kotak. Luas arsiran adalah seperempat kisi. Setiap baris penuh mewakili 10%.",
+      "See 25%",
+      "Lihat 25%",
+      "25/100 = 0.25 = 25%",
+      "25"
+    ],
+    [
+      "Find a percentage by comparing the part with the whole.",
+      "Cari persentase dengan membandingkan bagian dengan keseluruhan.",
+      "If 8 of 20 students cycle to school, scale top and bottom by 5 to get a denominator of 100.",
+      "Jika 8 dari 20 siswa bersepeda ke sekolah, kalikan pembilang dan penyebut dengan 5 agar penyebutnya 100.",
+      "Find the share",
+      "Cari persentasenya",
+      "8/20 = 40/100 = 40%",
+      "40"
+    ],
+    [
+      "Work backward from a known part to get the whole.",
+      "Bekerja mundur dari bagian yang diketahui untuk mencari jumlah seluruhnya.",
+      "If 12 students are 30%, every block of 10% represents 4 students. Ten blocks make the whole group.",
+      "Jika 12 siswa mewakili 30%, setiap blok 10% mewakili 4 siswa. Sepuluh blok membentuk seluruh kelompok.",
+      "Find the whole",
+      "Cari keseluruhan",
+      "12 ÷ 3 × 10 = 40",
+      "30"
+    ]
+  ],
+  [
+    [
+      "Use the number line to track direction.",
+      "Gunakan garis bilangan untuk melacak arah.",
+      "Start at −6. A rise moves right. A drop moves left.",
+      "Mulai dari −6. Kenaikan bergerak ke kanan. Penurunan bergerak ke kiri.",
+      "Move along the line",
+      "Bergerak pada garis",
+      "−6 + 9 − 11 = −8",
+      "−6 + 9 = 3; 3 − 11 = −8"
+    ],
+    [
+      "Group operations by priority.",
+      "Kelompokkan operasi berdasarkan urutan pengerjaan.",
+      "Do powers and roots before multiplication and division. Work left to right within each priority level.",
+      "Kerjakan pangkat dan akar sebelum kali dan bagi. Pada tingkat yang sama, kerjakan dari kiri ke kanan.",
+      "Follow operation order",
+      "Ikuti urutan operasi",
+      "−18 ÷ 3 × (−2) + 4 = 16",
+      "−18 ÷ 3 → −6 × (−2) → 12 + 4 → 16"
+    ],
+    [
+      "A square root reverses squaring. A cube root reverses cubing.",
+      "Akar kuadrat membalik operasi kuadrat. Akar pangkat tiga membalik pangkat tiga.",
+      "In an expression, replace each power or root with its value before combining the terms.",
+      "Dalam perhitungan, ganti setiap pangkat atau akar dengan nilainya sebelum menggabungkan suku.",
+      "Connect powers and roots",
+      "Hubungkan pangkat dan akar",
+      "√144 = 12; ∛27 = 3",
+      "12 × 12 → 144 / 3 × 3 × 3 → 27"
+    ]
+  ],
+  [
+    [
+      "Multiples show how often schedules line up.",
+      "Kelipatan menunjukkan kapan jadwal bertemu.",
+      "List multiples of 4 and 6. The first positive number in both rows is their LCM.",
+      "Tulis kelipatan 4 dan 6. Bilangan positif pertama pada kedua baris adalah KPK.",
+      "Find the next shared date",
+      "Cari jadwal bersama",
+      "LCM(4, 6) = 12",
+      "4 · 8 · 12 / 6 · 12"
+    ],
+    [
+      "Factors show how many equal groups fit evenly.",
+      "Faktor menunjukkan banyak kelompok sama besar yang dapat dibentuk tanpa sisa.",
+      "For 12 and 18, list shared factors. The largest, 6, gives the most identical groups.",
+      "Untuk 12 dan 18, tulis faktor bersama. Faktor terbesar, yaitu 6, menghasilkan kelompok identik terbanyak.",
+      "Make equal groups",
+      "Buat kelompok sama besar",
+      "GCF(12, 18) = 6",
+      "1 · 2 · 3 · 6"
+    ],
+    [
+      "Divisibility helps find factors quickly.",
+      "Aturan keterbagian membantu menemukan faktor dengan cepat.",
+      "2 looks at the last digit, 3 at the digit sum, 4 at the last two digits, and 5 at a last digit of 0 or 5. For 6, both the 2 and 3 tests must pass.",
+      "Untuk 2 lihat digit akhir, untuk 3 jumlah digit, untuk 4 dua digit terakhir, dan untuk 5 digit akhir 0 atau 5. Untuk 6, syarat 2 dan 3 harus terpenuhi.",
+      "Check divisibility",
+      "Periksa keterbagian",
+      "24 is divisible by 2, 3, 4 and 6",
+      "2 + 4 = 6"
+    ]
+  ],
+  [
+    [
+      "Compare equal-sized pieces.",
+      "Bandingkan potongan yang berukuran sama.",
+      "A bar with three eighths shaded exceeds one with two eighths shaded. A common denominator lets you compare different fractions by that same rule.",
+      "Batang dengan tiga per delapan bagian diarsir lebih panjang daripada dua per delapan. Penyebut yang sama memungkinkan aturan ini dipakai untuk pecahan yang berbeda.",
+      "Compare fractions",
+      "Bandingkan pecahan",
+      "2/8 < 3/8",
+      "3/8"
+    ],
+    [
+      "Use division to measure in groups.",
+      "Gunakan pembagian untuk menghitung kelompok.",
+      "One liter holds two half-liter bottles. An extra quarter liter represents half of one bottle’s capacity.",
+      "Satu liter mengisi dua botol setengah liter. Tambahan seperempat liter setara dengan separuh kapasitas satu botol.",
+      "Count full bottles",
+      "Hitung botol penuh",
+      "1 1/4 ÷ 1/2 = 2 1/2 bottle capacities",
+      "1/2 + 1/2 + 1/4"
+    ],
+    [
+      "Write a math expression for the story.",
+      "Tulis kalimat matematika dari cerita.",
+      "To find what is left after filling two bottles, subtract the amount used. The result is measured in liters.",
+      "Untuk mencari sisa setelah mengisi dua botol, kurangi dengan volume air yang dipakai. Hasilnya diukur dalam liter.",
+      "Find the leftover",
+      "Cari sisanya",
+      "1 1/4 − 2 × 1/2 = 1/4 L",
+      "1 1/4 → 1 → 1/4 L"
+    ]
+  ]
+];
+const translations = {
+  facts:'Fakta bilangan',
+  visual:'Belajar visual', review:'Ringkasan', practice:'Latihan', exam:'Simulasi ujian',
+  'Maths Study Room':'Ruang Belajar Matematika', 'SEMESTER 1 · GRADE 7':'SEMESTER 1 · KELAS 7',
+  'Learning modes':'Mode belajar', 'Review topics':'Topik ringkasan', 'Lesson slides':'Slide pelajaran',
+  'ASTS worksheet':'Lembar ASTS', 'Worked examples':'Contoh penyelesaian',
+  'Practise this topic':'Latih topik ini', 'Source and notation notes':'Catatan sumber dan notasi',
+  'Check each answer for immediate feedback.':'Periksa jawaban untuk langsung melihat umpan balik.',
+  'Choose a question':'Pilih soal', 'Try again':'Coba lagi', 'Check answer':'Periksa jawaban',
+  'Previous':'Sebelumnya', 'Next':'Berikutnya', 'Correct.':'Benar.', 'Answer:':'Jawaban:',
+  'Choose an answer first.':'Pilih jawaban terlebih dahulu.', 'Mock exam results':'Hasil simulasi ujian',
+  'Retake exam':'Ulangi ujian', 'Answer key':'Kunci jawaban', 'Your answer:':'Jawabanmu:',
+  'Correct answer:':'Jawaban benar:', 'Blank':'Kosong', 'Submit exam':'Kumpulkan ujian',
+  'Submit with blanks':'Kumpulkan dengan jawaban kosong',
+  'Show solving steps':'Lihat langkah penyelesaian', 'Step':'Langkah',
+  'Try an exercise':'Coba latihan', 'Predict what changes, then use the controls to reveal each part.':'Tebak apa yang akan berubah, lalu gunakan tombol untuk membuka tiap tahap.'
+};
+const modeNames = {facts:"Number Facts",visual:'Visual lesson',review:'Review',practice:'Exercises',exam:'Mock exam'};
+let language = 'en';
+try { if (localStorage.getItem('maths-language') === 'id') language = 'id'; } catch {}
+const tr = (en,id) => language === 'id' ? id : en;
+const t = key => tr(modeNames[key] ?? key, translations[key] ?? key);
+const reviewTopics = () => tr(topics, topicsId);
+const notation = value => tr(value, value.replace(/\d[\d.,]*\d/g, n => n.replace(/[.,]/g, mark => mark === '.' ? ',' : '.')).replaceAll('total','jumlah seluruhnya').replaceAll('GCF','FPB').replaceAll('LCM','KPK'));
+const translatedChoices = {
+  'All five':'Kelima bilangan', '3 m below':'3 m di bawah permukaan', '27 m below':'27 m di bawah permukaan',
+  '27 m above':'27 m di atas permukaan', '57 m below':'57 m di bawah permukaan',
+  '15 bottles, 0 L':'15 botol, 0 L', '14 bottles, 1/4 L':'14 botol, 1/4 L',
+  '14 bottles, 1/2 L':'14 botol, 1/2 L', '13 bottles, 1/4 L':'13 botol, 1/4 L'
+};
+function choiceText(value) {
+  if (value === undefined) return t('Blank');
+  return tr(value, translatedChoices[value] ?? notation(value).replaceAll(' and ',' dan ').replaceAll(' days',' hari'));
+}
+function promptText(item, index, bank) {
+  return tr(item[1], promptsId[index + (bank === 'exam' ? practice.length : 0)]);
+}
+const deeperSolutions = [
+  [
+    "Treat the whole as 20 equal tiles. Removing five of the fourteen shaded tiles leaves nine.",
+    "Bayangkan satu utuh sebagai 20 petak sama besar. Menghapus lima dari 14 petak berwarna menyisakan sembilan.",
+    "Add 5/20 back to 9/20 to recover 7/10.",
+    "Tambahkan kembali 5/20 ke 9/20 untuk memperoleh 7/10.",
+    "bar:20,14;20,9,5;20,9"
+  ],
+  [
+    "A denominator of 20 gives adjacent numerators, 15 and 16. Doubling both denominators creates a space between them.",
+    "Penyebut 20 menghasilkan pembilang bertetangga, 15 dan 16. Menggandakan penyebut membuka ruang di antaranya.",
+    "The result is one fortieth from either endpoint.",
+    "Hasilnya berjarak satu per empat puluh dari masing-masing batas.",
+    "bar:40,30;40,31;40,32"
+  ],
+  [
+    "Think of 3/2 as three half-units. Taking four ninths of each half gives 4/18 per half.",
+    "Anggap 3/2 sebagai tiga satuan setengah. Empat per sembilan dari setiap setengah adalah 4/18.",
+    "Three copies of 4/18 give 12/18, or 2/3.",
+    "Tiga bagian 4/18 menghasilkan 12/18 atau 2/3.",
+    "flow:4/18 + 4/18 + 4/18|12/18|2/3"
+  ],
+  [
+    "Use units of 1/36. The dividend is 30 of those units and the divisor is 40, so division compares 30 to 40.",
+    "Gunakan satuan 1/36. Bilangan yang dibagi memiliki 30 satuan, sedangkan pembaginya 40. Jadi pembagian membandingkan 30 dengan 40.",
+    "Multiply 3/4 by 10/9 to recover 5/6.",
+    "Kalikan 3/4 dengan 10/9 untuk memperoleh kembali 5/6.",
+    "bar:40,30;40,40"
+  ],
+  [
+    "The leading 4 is outside the repeating block. Shifting once places it before the point. Shifting twice puts the next 3 before the point too.",
+    "Angka 4 berada di luar blok berulang. Geser sekali agar 4 berada sebelum koma. Geser dua kali agar 3 pertama juga berada sebelum koma.",
+    "13/30 = 12/30 + 1/30 = 0.4 + 0.0333….",
+    "13/30 = 12/30 + 1/30 = 0,4 + 0,0333….",
+    "flow:43.333…|−4.333…|39"
+  ],
+  [
+    "The two possible hundredths are 9.99 and 10.00. The original number is exactly halfway between them.",
+    "Dua nilai perseratus terdekat adalah 9,99 dan 10,00. Bilangan awal tepat di tengah.",
+    "The rounding rule chooses the higher of the two at a tie.",
+    "Aturan pembulatan memilih nilai yang lebih besar saat jaraknya sama.",
+    "line:9.99|9.995|10.00"
+  ],
+  [
+    "Both decimals can be read as counts of thousandths. Once you make their units match, you can add their counts.",
+    "Kedua desimal dapat dibaca sebagai jumlah perseribu. Setelah satuannya sama, jumlahkan banyaknya.",
+    "7.535 − 0.735 = 6.800, which equals 6.8.",
+    "7,535 − 0,735 = 6,800, yang sama dengan 6,8.",
+    "stack:6.800|+ 0.735|7.535"
+  ],
+  [
+    "The last zero in 8.400 is a placeholder. Writing it makes each digit line up with the corresponding place in 2.085.",
+    "Nol terakhir pada 8,400 mengisi tempat perseribu. Dengan menuliskannya, setiap digit sejajar dengan tempat yang sama pada 2,085.",
+    "6.315 + 2.085 = 8.400.",
+    "6,315 + 2,085 = 8,400.",
+    "stack:8.400|− 2.085|6.315"
+  ],
+  [
+    "Four tenths of thirty-five hundredths is four groups of 35 thousandths. The denominator is 10 × 100.",
+    "Empat persepuluh dari 35 perseratus adalah empat kelompok berisi 35 perseribu. Penyebutnya 10 × 100.",
+    "The product should be smaller than 0.35 because 0.4 is less than 1.",
+    "Hasilnya lebih kecil dari 0,35 karena faktor 0,4 kurang dari 1.",
+    "flow:35 + 35 + 35 + 35|140/1000|0.14"
+  ],
+  [
+    "Scaling both terms keeps the ratio equal. Find how many groups of 12 fit into 75.6, including a fraction of a group.",
+    "Mengalikan kedua bilangan dengan faktor yang sama menjaga hasil bagi. Cari banyak kelompok 12 dalam 75,6, termasuk bagian dari satu kelompok.",
+    "6.3 × 1.2 = 7.56.",
+    "6,3 × 1,2 = 7,56.",
+    "flow:75.6|72 + 3.6|6 + 0.3"
+  ],
+  [
+    "Half of 25% is 12.5%. A quarter of the whole cut in half gives an eighth.",
+    "Setengah dari 25% adalah 12,5%. Seperempat dari satu utuh yang dibagi dua menjadi seperdelapan.",
+    "Eight copies of 12.5% make 100%.",
+    "Delapan bagian 12,5% membentuk 100%.",
+    "bar:8,1"
+  ],
+  [
+    "Split 45% into nine 5% slices. Eighteen divided by nine gives two students per slice.",
+    "Bagi 45% menjadi sembilan potongan 5%. Delapan belas dibagi sembilan berarti dua siswa per potongan.",
+    "Twenty slices make the whole: 20 × 2 = 40.",
+    "Dua puluh potongan membentuk keseluruhan: 20 × 2 = 40.",
+    "bar:20,9"
+  ],
+  [
+    "Picture the 32 students in four groups of eight. The swimmers fill three groups and one group is outside the team.",
+    "Bayangkan 32 siswa dalam empat kelompok berisi delapan. Perenang mengisi tiga kelompok dan satu kelompok berada di luar tim.",
+    "The two shares total 75% + 25% = 100%.",
+    "Kedua bagian berjumlah 75% + 25% = 100%.",
+    "bar:4,3"
+  ],
+  [
+    "Think of the first jump as crossing zero. Six of the nine degrees reach zero, and three more reach +3.",
+    "Bayangkan lompatan pertama melewati nol. Enam dari sembilan derajat mencapai nol, lalu tiga lagi mencapai +3.",
+    "The drop of 11 is 3 back to zero and another 8 below it.",
+    "Penurunan 11 berarti 3 kembali ke nol dan 8 lagi di bawahnya.",
+    "flow:−6 + 9 = 3|3 − 11 = −8"
+  ],
+  [
+    "Division and multiplication have the same priority. Start with the leftmost pair (−18) ÷ 3 before using the factor −2.",
+    "Pembagian dan perkalian setingkat. Mulai dari pasangan paling kiri (−18) ÷ 3 sebelum memakai faktor −2.",
+    "The product 12 is positive because the two factors are both negative.",
+    "Hasil kali 12 positif karena kedua faktornya negatif.",
+    "flow:(−18) ÷ 3|−6 × (−2)|12 + 4|16"
+  ],
+  [
+    "The exponent belongs to the whole signed number in parentheses. Three negative factors give a negative product.",
+    "Pangkat berlaku untuk seluruh bilangan bertanda di dalam kurung. Tiga faktor negatif menghasilkan bilangan negatif.",
+    "Subtracting −8 and adding 3 places the result 11 above 12.",
+    "Mengurangi −8 lalu menambah 3 menempatkan hasil 11 di atas 12.",
+    "flow:√144 → 12|(−2)³ → −8|∛27 → 3|12 + 8 + 3"
+  ],
+  [
+    "Separate the tests into three clues: the final digit, the digit sum, and the final pair of digits.",
+    "Pisahkan tes menjadi tiga petunjuk: digit terakhir, jumlah digit, dan dua digit terakhir.",
+    "Because 2 and 3 have no common factor besides 1, passing both gives 6.",
+    "Karena 2 dan 3 hanya memiliki faktor bersama 1, lolos keduanya berarti habis dibagi 6.",
+    "flow:0 → 2, 5|12 → 3|40 → 4|2 × 3 → 6"
+  ],
+  [
+    "A shared day must contain enough factors to be divisible by all three intervals. Taking each highest power supplies exactly what is required.",
+    "Hari bersama harus memuat faktor yang cukup agar habis dibagi semua selang. Pangkat tertinggi menyediakan faktor yang diperlukan.",
+    "A smaller positive multiple cannot contain all of 2², 3 and 5.",
+    "Kelipatan positif yang lebih kecil tidak dapat memuat 2², 3, dan 5 sekaligus.",
+    "flow:4 → 2²|6 → 2 × 3|10 → 2 × 5|60"
+  ],
+  [
+    "Imagine six strips of the same width. Each strip is thinner when its whole is cut into more parts.",
+    "Bayangkan enam potongan dari setiap satu utuh. Potongannya makin tipis ketika satu utuh dibagi menjadi lebih banyak bagian.",
+    "All three are below 1, and 6/20 has the fewest parts per whole, so it is largest.",
+    "Ketiganya kurang dari 1, dan 6/20 memiliki paling sedikit bagian per utuh sehingga paling besar.",
+    "bar:31,6;25,6;20,6"
+  ],
+  [
+    "Six sixths make one whole. Make groups of six until fewer than six sixths remain.",
+    "Enam per enam membentuk satu utuh. Buat kelompok berisi enam hingga tersisa kurang dari enam bagian.",
+    "Multiply the whole part by 6 and add the leftover numerator: 7 × 6 + 5 = 47.",
+    "Kalikan bagian bulat dengan 6 lalu tambahkan pembilang sisa: 7 × 6 + 5 = 47.",
+    "flow:47/6|42/6 + 5/6|7 5/6"
+  ],
+  [
+    "Use depth relative to the surface. After rising, the diver is still nine meters below sea level.",
+    "Gunakan posisi relatif terhadap permukaan. Setelah naik, penyelam masih sembilan meter di bawah permukaan.",
+    "The last dive adds 18 m to the depth of 9 m, giving 27 m below.",
+    "Turun lagi 18 m dari kedalaman 9 m menghasilkan 27 m di bawah permukaan.",
+    "flow:−24 m + 15 m = −9 m|−9 m − 18 m = −27 m"
+  ],
+  [
+    "Treat P and Q as boxes whose values must be evaluated before substitution. Multiplying P by 2 doubles its negative contribution.",
+    "Anggap P dan Q sebagai kotak yang nilainya harus dihitung sebelum disubstitusi. Mengalikan P dengan 2 menggandakan kontribusi negatifnya.",
+    "Adding +9 makes −24 closer to zero, so the result is −15.",
+    "Menambah +9 mendekatkan −24 ke nol, sehingga hasilnya −15.",
+    "flow:P → −12|Q → 9|−24 + 9|−15"
+  ],
+  [
+    "The radical signs each return a single value. In contrast, the cube of the signed input retains a negative sign.",
+    "Setiap tanda akar memberikan satu nilai. Pangkat tiga dari bilangan negatif tetap bertanda negatif.",
+    "The subtraction of a negative adds eight, followed by four more.",
+    "Pengurangan bilangan negatif menambah delapan, lalu ditambah empat lagi.",
+    "flow:√196 → 14|(−2)³ → −8|∛64 → 4|14 + 8 + 4"
+  ],
+  [
+    "Sort the 30 questions into correct, wrong and blank before applying the scoring rules.",
+    "Pisahkan 30 soal menjadi benar, salah, dan kosong sebelum menerapkan aturan penilaian.",
+    "The counts sum to 30. The 15-point deduction reduces 84 to 69.",
+    "Jumlah kategorinya 30. Pengurangan 15 poin menurunkan 84 menjadi 69.",
+    "bar:30,21,6"
+  ],
+  [
+    "The first four tests depend on the form of the number. The test for 6 combines two of those results.",
+    "Empat tes pertama memakai bentuk bilangan. Tes untuk 6 menggabungkan dua hasil sebelumnya.",
+    "The digit sum is 9 and the final pair, 40, is ten groups of 4.",
+    "Jumlah digitnya 9 dan dua digit akhir, 40, merupakan sepuluh kelompok 4.",
+    "flow:0 → 2, 5|9 → 3|40 → 4|2 × 3 → 6"
+  ],
+  [
+    "The 8-day event requires three factors of 2. The 6-day and 12-day events additionally require one factor of 3.",
+    "Kegiatan setiap 8 hari memerlukan tiga faktor 2. Kegiatan setiap 6 dan 12 hari memerlukan satu faktor 3 tambahan.",
+    "Neither 8 nor 16 is divisible by 3. The next multiple of 8, 24, works.",
+    "Baik 8 maupun 16 tidak habis dibagi 3. Kelipatan 8 berikutnya, yaitu 24, memenuhi syarat.",
+    "flow:8|16|24 → 6, 8, 12"
+  ],
+  [
+    "Every package count must divide all three supply quantities. The smallest available exponent for each shared prime sets the limit.",
+    "Jumlah paket harus membagi habis ketiga persediaan. Pangkat terkecil yang tersedia dari setiap faktor prima bersama menentukan batasnya.",
+    "Multiply each package amount by 12 to recover the original totals.",
+    "Kalikan isi setiap paket dengan 12 untuk mendapatkan kembali semua jumlah awal.",
+    "flow:48 ÷ 12 → 4|36 ÷ 12 → 3|60 ÷ 12 → 5"
+  ],
+  [
+    "Naming the same shaded share with more or fewer pieces leaves the value unchanged. Try blending each pair into groups of two or seven.",
+    "Menamai bagian berwarna yang sama dengan potongan lebih banyak atau lebih sedikit tidak mengubah nilainya. Kelompokkan potongan per dua atau per tujuh.",
+    "15/18 is also equivalent to 5/6, but its partner 15/20 is only 3/4.",
+    "15/18 juga senilai dengan 5/6, tetapi pasangannya 15/20 hanya 3/4.",
+    "bar:6,5;12,10;42,35"
+  ],
+  [
+    "Each whole liter fills two bottles. Seven whole liters fill 14 bottles, leaving the extra quarter liter.",
+    "Satu liter mengisi dua botol. Tujuh liter mengisi 14 botol dan menyisakan seperempat liter.",
+    "The remainder is below one bottle’s capacity, and 14 × 1/2 + 1/4 equals 7 1/4.",
+    "Sisanya kurang dari kapasitas satu botol, dan 14 × 1/2 + 1/4 sama dengan 7 1/4.",
+    "bar:15,14"
+  ],
+  [
+    "First picture the water rising as you add 1 3/4 L. Then picture the level dropping as 1 1/3 L spills.",
+    "Bayangkan permukaan air naik saat 1 3/4 L ditambahkan. Lalu bayangkan permukaan turun saat 1 1/3 L tumpah.",
+    "The amount before the spill is 4 1/4 L. Add the spill back to the result to recover that amount.",
+    "Volume sebelum tumpah adalah 4 1/4 L. Tambahkan kembali volume yang tumpah untuk memperoleh jumlah itu.",
+    "bar:51,30,21;51,35,16;51,35"
+  ],
+  [
+    "Multiplication and division share one priority level, so begin with the multiplication on the left.",
+    "Perkalian dan pembagian setingkat, jadi mulai dengan perkalian di kiri.",
+    "The intermediate product equals the divisor. One copy of the divisor fits exactly.",
+    "Hasil kali sementara sama dengan pembagi. Tepat satu bagian pembagi yang muat.",
+    "flow:1 1/2 → 3/2|× 4/9 → 2/3|÷ 2/3 → 1"
+  ],
+  [
+    "All three numbers are between zero and one. Write them in thousandths so the distance from zero can be compared in identical units.",
+    "Ketiga bilangan berada di antara nol dan satu. Tulis sebagai perseribu agar jaraknya dari nol bisa dibandingkan dengan satuan sama.",
+    "405 thousandths is smaller than 480, which is smaller than 500.",
+    "405 perseribu lebih kecil dari 480, dan 480 lebih kecil dari 500.",
+    "line:0.405|0.480|0.500"
+  ],
+  [
+    "After scaling, 54.6 is between three lots of 14 (42) and four lots (56). The result must lie between 3 and 4.",
+    "Setelah penskalaan, 54,6 berada di antara tiga kali 14 (42) dan empat kali 14 (56). Hasilnya antara 3 dan 4.",
+    "3.9 × 1.4 = 5.46.",
+    "3,9 × 1,4 = 5,46.",
+    "flow:54.6|42 + 12.6|3 + 0.9|3.9"
+  ],
+  [
+    "An eighth represents 12.5% because eight equal pieces make 100%. Seven of those pieces give the answer.",
+    "Seperdelapan mewakili 12,5% karena delapan bagian sama besar membentuk 100%. Tujuh bagian itu menghasilkan jawaban.",
+    "Subtract the missing eighth from 100%: 100% − 12.5% = 87.5%.",
+    "Kurangi seperdelapan yang kosong dari 100%: 100% − 12,5% = 87,5%.",
+    "bar:8,7"
+  ]
+];
+function solutionVisual(spec, index) {
+  const separator = spec.indexOf(':');
+  const kind = spec.slice(0,separator);
+  const value = spec.slice(separator+1);
+  if (kind === 'bar') {
+    const labels = {
+      0: [tr('Start: 14 filled, 6 empty','Awal: 14 terisi, 6 kosong'),
+        tr('Subtract: 9 stay filled, 5 striped are removed, 6 were empty','Kurangi: 9 tetap terisi, 5 bergaris dihapus, 6 sudah kosong'),
+        tr('Result: 9 filled, 11 empty','Hasil: 9 terisi, 11 kosong')], 1: ['30/40','31/40','32/40'],
+      3: ['5/6 = 30/36','10/9 = 40/36'],
+      10: ['1/8 = 12.5%'], 11: ['9 × 5% = 45%'],
+      12: [tr('3 groups on the team · 1 group outside','3 kelompok dalam tim · 1 kelompok di luar tim')],
+      18: ['6/31','6/25','6/20'],
+      23: [tr('21 correct · 6 wrong · 3 blank','21 benar · 6 salah · 3 kosong')],
+      27: ['5/6','10/12','35/42'],
+      28: [tr('14 full half-liter bottles · 1/4 L of water left','14 botol setengah liter penuh · 1/4 L air tersisa')],
+      29: [tr('Pour: 30/12 L already in the bucket + 21/12 L added (striped)','Tuang: 30/12 L sudah di ember + 21/12 L ditambahkan (bergaris)'),
+        tr('Spill: 35/12 L stays, 16/12 L spills (striped)','Tumpah: 35/12 L tersisa, 16/12 L tumpah (bergaris)'),
+        tr('Result: 35/12 L left','Hasil: 35/12 L tersisa')],
+      33: ['7/8 = 87.5%']
+    };
+    const descriptions = labels[index];
+    return value.split(';').map((row,i)=>{
+      const [parts, shaded, marked = 0] = row.split(',').map(Number);
+      const finalPart = index === 28 ? 'partial' : '';
+      return `<div class="model-row"><b>${notation(descriptions[i])}</b>
+        <div class="model-tiles" aria-hidden="true">${Array.from({length:parts},(_,j)=>{
+          const tone = j < shaded ? 'filled' : j < shaded + marked ? 'marked' : finalPart;
+          return `<span class="${tone}"></span>`;
+        }).join('')}</div></div>`;
+    }).join('');
+  }
+  const values = value.split('|').map(notation);
+  if (kind === 'line') {
+    const points = value.split('|').map(Number);
+    const low = points[0];
+    const width = points.at(-1)-low;
+    return `<div class="model-line" aria-hidden="true">${points.map((point,i)=>
+      `<span style="left:${(point-low)/width*100}%">${values[i]}</span>`).join('')}</div>
+      <p class="model-text">${values.join(' < ')}</p>`;
+  }
+  if (kind === 'stack') return `<div class="model-stack">${values.map(line=>`<div>${line}</div>`).join('')}</div>`;
+  return `<ol class="model-flow">${values.map(line=>`<li>${line}</li>`).join('')}</ol>`;
+}
+function solutionHTML(bank, index) {
+  const isExam = bank === 'exam';
+  const items = isExam ? exam : practice;
+  const key = index + (isExam ? practice.length : 0);
+  const [ideaEn,ideaId,checkEn,checkId,spec] = deeperSolutions[key];
+  const answer = `<p class="solution-answer"><strong>${t('Answer:')}</strong> ${choiceText(items[index][2][items[index][3]])}</p>`;
+  const steps = solutions[key].map(([id,en,equation],i)=>`<li><details open>
+    <summary>${t('Step')} ${i+2} · ${tr(en,id)}</summary>
+    <div class="mathline">${notation(equation)}</div></details></li>`).join('');
+  return `<div class="solution-options">
+    <details class="solution"><summary>${t('Show solving steps')}</summary>
+      <ol><li><strong>${t('Step')} 1 · ${tr('Plan the approach','Rencanakan cara')}</strong>
+      <p>${tr(ideaEn,ideaId)}</p></li>${steps}
+      <li><strong>${t('Step')} 5 · ${tr('Check the result','Periksa hasilnya')}</strong>
+      <p>${tr(checkEn,checkId)}</p></li></ol>${answer}</details>
+    <details class="solution"><summary>${tr('See the visual walkthrough','Lihat penjelasan visual')}</summary>
+      <p class="visual-intro">${tr(ideaEn,ideaId)}</p>
+      <div class="question-model">${solutionVisual(spec,key)}</div>
+      <p>${tr(checkEn,checkId)}</p>${answer}</details></div>`;
+}
+let visualStep = 0;
+function blocks(count, shaded, grid = false) {
+  return `<div class="blocks ${grid ? 'hundred' : ''}" aria-hidden="true">${Array.from({length:count},(_,i)=>`<span class="${i<shaded?'filled':''}"></span>`).join('')}</div>`;
+}
+function diagram(index, stage, value) {
+  if (index === 3) return blocks(100,Number(value),true);
+  if (index === 0) return blocks(stage === 0 ? 2 : 4, stage === 2 ? 3 : stage+1);
+  if (index === 6 && stage === 0) return blocks(8,2) + blocks(8,3);
+  if (index === 4 && stage === 0) {
+    return `<div class="numberline" aria-hidden="true">${Array.from({length:13},(_,i)=>`<span class="${[-8,-6,3].includes(i-9)?'marked':''}">${i-9}</span>`).join('')}</div>`;
+  }
+  if (index === 1 && stage === 0) {
+    const labels = tr(['ones','tenths','hundredths','thousandths'],['satuan','persepuluh','perseratus','perseribu']);
+    return `<div class="place-grid" aria-hidden="true">${labels.map((label,i)=>`<div><b>${i+1}</b><span>${label}</span></div>`).join('')}</div>`;
+  }
+  if (index === 5 && stage === 0) {
+    return `<div class="tracks" aria-hidden="true"><div>4:　4　→　8　→　<b>12</b></div><div>6:　6　────→　<b>12</b></div></div>`;
+  }
+  return `<div class="math-diagram" aria-hidden="true">${notation(value)}</div>`;
+}
+function visualHTML() {
+  const item = reviewTopics()[topic];
+  const stages = visuals[topic];
+  const [headlineEn,headlineId,bodyEn,bodyId,,,equation,value] = stages[visualStep];
+  return `<h2>${t('visual')}</h2><p>${t('Predict what changes, then use the controls to reveal each part.')}</p>
+   <div class="grid"><aside class="topics" aria-label="${t('Review topics')}">${reviewTopics().map(([name],i)=>`<button data-topic="${i}" aria-current="${i===topic}">${name}</button>`).join('')}</aside>
+   <article class="card"><p class="source">${item[1]}</p><h3>${item[0]}</h3>
+   <div class="actions visual-actions">${stages.map((entry,i)=>`<button data-stage="${i}" aria-pressed="${i===visualStep}">${tr(entry[4],entry[5])}</button>`).join('')}</div>
+   <div class="visual-example">${diagram(topic,visualStep,value)}<p class="mathline">${notation(equation).replace(' bottle capacities',tr(' bottle capacities',' kapasitas botol')).replace(' is divisible by ',tr(' is divisible by ',' habis dibagi '))}</p>
+   <p><strong>${tr(headlineEn,headlineId)}</strong></p><p>${tr(bodyEn,bodyId)}</p></div>
+   <div class="actions"><button id="visual-prev" ${visualStep===0?'disabled':''}>${t('Previous')}</button>
+   <button id="visual-next" ${visualStep===stages.length-1?'disabled':''}>${t('Next')}</button>
+   <button class="primary" id="practice-topic">${t('Try an exercise')}</button></div></article></div>`;
+}
+
+const factKinds = [
+  ['Multiplication','Perkalian','Read across the row for 7 to count in sevens. Swapping the factors keeps the product the same.','Baca baris 7 untuk melihat kelipatan tujuh. Menukar posisi kedua faktor tidak mengubah hasil kali.','7 × 8 = 8 × 7 = 56',12],
+  ['Exact division','Pembagian habis','Pick a divisor on the left. Each box shows a dividend and its quotient. Find the missing factor by reversing multiplication.','Pilih pembagi di sebelah kiri. Setiap kotak menunjukkan bilangan yang dibagi dan hasil baginya. Cari faktor yang hilang dengan membalik perkalian.','56 ÷ 7 = 8 ↔ 7 × 8 = 56',12],
+  ['Squares','Kuadrat','A square counts the tiles in an n-by-n grid. Going from 7² to 8² adds a row of 7 and a column of 8.','Kuadrat menghitung petak dalam kisi n kali n. Dari 7² ke 8², tambahkan satu baris berisi 7 dan satu kolom berisi 8.','7² = 49 → 49 + 7 + 8 = 64 = 8²',20],
+  ['Cubes','Pangkat tiga','A cube has n layers. Each layer is an n-by-n square, so multiply the square by n.','Kubus memiliki n lapisan. Setiap lapisan berbentuk persegi n kali n, jadi kalikan kuadratnya dengan n.','4³ = 4 × 4 × 4 = 16 × 4 = 64',12],
+  ['Square roots','Akar kuadrat','Read a square fact backward. √64 asks for the nonnegative number that gives 64 when squared.','Baca fakta kuadrat dari belakang. √64 menanyakan bilangan tak negatif yang kuadratnya 64.','√64 = 8 ↔ 8² = 64',20],
+  ['Cube roots','Akar pangkat tiga','Read a cube fact backward. To estimate an unfamiliar cube root, bracket it between two cubes you know.','Baca fakta pangkat tiga dari belakang. Untuk memperkirakan akar pangkat tiga, cari dua kubik yang mengapit bilangan tersebut.','∛216 = 6;  5³ < 216 < 7³',12]
+];
+const factState = factKinds.map(() => ({questions:[], answers:[], submitted:false}));
+let factTopic = 0;
+let factQuiz = false;
+let factSelectedRow = 7;
+function factQuestion(kind,a,b) {
+  switch(kind) {
+    case 0: return [`${a} × ${b}`,a*b,`${b} × ${a} = ${a*b}`];
+    case 1: return [`${a*b} ÷ ${a}`,b,`${a} × ${b} = ${a*b}`];
+    case 2: return [`${a}²`,a**2,`${a} × ${a} = ${a**2}`];
+    case 3: return [`${a}³`,a**3,`${a}² × ${a} = ${a**2} × ${a} = ${a**3}`];
+    case 4: return [`√${a**2}`,a,`${a}² = ${a**2}`];
+    case 5: return [`∛${a**3}`,a,`${a}³ = ${a**3}`];
+  }
+}
+function startFactQuiz() {
+  const max = factKinds[factTopic][5];
+  const pool = [];
+  for(let a=2;a<=max;a++){
+    for(let b=factTopic === 0 ? a : 2; b <= (factTopic < 2 ? max : 2); b++){
+      pool.push(factQuestion(factTopic,a,b));
+    }
+  }
+  const questions = [];
+  while(questions.length < 5) questions.push(...pool.splice(Math.floor(Math.random()*pool.length),1));
+  factState[factTopic] = {questions,answers:[],submitted:false};
+  factQuiz = true;
+  renderFactsFocus();
+}
+function factTable() {
+  const count = factKinds[factTopic][5];
+  const numbers = Array.from({length:count},(_,i)=>i+1);
+  if(factTopic < 2){
+    const multiply = factTopic === 0;
+    const corner = multiply ? '×' : tr('Divisor','Pembagi');
+    return `<div class="fact-mobile">
+      <label for="fact-row">${multiply ? tr('Choose a times table','Pilih tabel perkalian') : tr('Choose a divisor','Pilih pembagi')}</label>
+      <select id="fact-row">${numbers.map(n=>`<option value="${n}" ${n===factSelectedRow?'selected':''}>${n}</option>`).join('')}</select>
+      <ol class="fact-cards">${numbers.map(n=>{
+        const [expression,answer] = factQuestion(factTopic,factSelectedRow,n);
+        return `<li>${expression} = <strong>${answer}</strong></li>`;
+      }).join('')}</ol></div>
+      <div class="fact-scroll fact-wide" tabindex="0" role="region" aria-label="${tr('Study table','Tabel belajar')}">
+      <table class="fact-table"><caption>${multiply ? tr('Row × column = product','Baris × kolom = hasil kali') : tr('Dividend ÷ row divisor = column quotient','Bilangan yang dibagi ÷ pembagi pada baris = hasil bagi pada kolom')}</caption>
+      <thead><tr><th scope="col">${corner}</th>${numbers.map(n=>`<th scope="col">${n}</th>`).join('')}</tr></thead>
+      <tbody>${numbers.map(a=>`<tr><th scope="row">${a}</th>${numbers.map(b=>`<td>${multiply ? a*b : `${a*b} ÷ ${a} = ${b}`}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  }
+  const isRoot = factTopic >= 4;
+  return `<div class="fact-scroll"><table class="fact-table fact-narrow">
+    <caption>${tr('Facts from 1 to','Fakta dari 1 sampai')} ${count}</caption>
+    <thead><tr><th scope="col">${tr('Expression','Bentuk')}</th><th scope="col">${tr('Value','Nilai')}</th><th scope="col">${isRoot?tr('Check with a power','Periksa dengan pangkat'):tr('Think of it as','Bentuk perkalian')}</th></tr></thead>
+    <tbody>${numbers.map(n=>{
+      const [expression,answer,reason] = factQuestion(factTopic,n,1);
+      return `<tr><th scope="row">${expression}</th><td>${answer}</td><td>${reason}</td></tr>`;
+    }).join('')}</tbody></table></div>`;
+}
+function factQuizHTML() {
+  const {questions,answers,submitted} = factState[factTopic];
+  const correct = (answer,value) => answer?.trim() && Number(answer)===value;
+  const earned = questions.filter(([,value],i)=>correct(answers[i],value)).length;
+  return `<form id="fact-form"><p>${tr('Recall five facts from memory. Type each answer, then check your score.','Ingat lima fakta tanpa melihat tabel. Ketik setiap jawaban, lalu periksa nilaimu.')}</p>
+    ${submitted?`<p class="feedback good" role="status">${tr('Score','Nilai')} <strong>${earned} / ${questions.length}</strong></p>`:''}
+    <ol class="fact-questions">${questions.map(([expression,value,reason],i)=>`<li>
+      <label for="fact-${i}">${expression} =</label>
+      <input type="number" min="0" step="1" inputmode="numeric" id="fact-${i}" name="fact-${i}" value="${answers[i]??''}" ${submitted?'readonly':''}>
+      ${submitted?`<p class="feedback ${correct(answers[i],value)?'good':'bad'}">
+        <strong>${correct(answers[i],value)?t('Correct.'):tr('Answer','Jawaban')+' '+value}</strong> · ${reason}</p>`:''}</li>`).join('')}</ol>
+    <div class="actions">${submitted?`<button type="button" class="primary" id="fact-start">${tr('New five questions','Lima soal baru')}</button>`:`<button type="submit" class="primary">${tr('Check five answers','Periksa lima jawaban')}</button>`}
+    <button type="button" id="fact-study">${tr('Back to study table','Kembali ke tabel belajar')}</button></div></form>`;
+}
+function factsHTML() {
+  const [en,id,whyEn,whyId,example] = factKinds[factTopic];
+  return `<h2>${t('facts')}</h2><p>${tr('Study a few rows, hide the table, then recall the facts. Say the reverse fact out loud too.','Pelajari beberapa baris, sembunyikan tabel, lalu ingat faktanya. Ucapkan juga fakta kebalikannya.')}</p>
+    <div class="grid"><aside class="topics" aria-label="${t('Review topics')}">${factKinds.map(([name,local],i)=>`<button type="button" data-fact="${i}" aria-current="${factTopic===i}">${tr(name,local)}</button>`).join('')}</aside>
+    <article class="card"><h3 id="fact-heading" tabindex="-1">${tr(en,id)}</h3>
+    ${factQuiz ? factQuizHTML() : `<p>${tr(whyEn,whyId)}</p><p class="mathline">${example}</p>
+      <button type="button" class="primary" id="fact-start">${tr('Hide table and practise','Sembunyikan tabel dan mulai latihan')}</button>
+      ${factState[factTopic].questions.length ? `<button type="button" id="fact-resume">${tr('Return to last quiz','Kembali ke latihan terakhir')}</button>` : ''}
+      ${factTable()}`}</article></div>`;
+}
+function renderFactsFocus() {
+  render();
+  main.querySelector('#fact-heading').focus();
+}
+
+const main = document.querySelector('#main');
+let mode = 'facts';
+let topic = 0;
+let practiceIndex = 0;
+let practiceAnswers = {};
+let examAnswers = {};
+let submitted = false;
+let confirmBlank = false;
+
+function choiceFields(item, index, selected, locked) {
+  return item[2].map((choice, i) => `<label class="choice"><input type="radio" name="q${index}" value="${i}" ${selected === i ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${choiceText(choice)}</label>`).join('');
+}
+function score(items, answers) {
+  return items.reduce((total, item, i) => total + Number(answers[i] === item[3]), 0);
+}
+function openMode(next) {
+  mode = next;
+  render();
+  const title = main.querySelector('h2');
+  title.tabIndex = -1;
+  title.focus();
+}
+function reviewHTML() {
+  const item = reviewTopics()[topic];
+  const topicButtons = (start, end) => reviewTopics().slice(start, end).map(([name], i) =>
+    `<button data-topic="${start+i}" aria-current="${start+i === topic}">${name}</button>`).join('');
+  return `<h2>${t('review')}</h2><div class="grid"><aside class="topics" aria-label="${t('Review topics')}">
+    <p class="source">${t('Lesson slides')}</p>${topicButtons(0,4)}<p class="source">${t('ASTS worksheet')}</p>${topicButtons(4,7)}
+    </aside><article class="card" id="lesson"><p class="source">${item[1]}</p><h3>${item[0]}</h3>
+    <p>${item[2]}</p><div class="example"><p><strong>${t('Worked examples')}</strong></p>${item[3].map(example => `<p>${example}</p>`).join('')}</div>
+    <button class="primary" id="practice-topic">${t('Practise this topic')}</button></article></div>
+    <details class="card"><summary>${t('Source and notation notes')}</summary>
+      <p>${tr("In the slides, KPK means LCM. A decimal comma such as 2,6 means 2.6. On slide 27, use subtraction from right to left. Slide 31’s 0.6 × 0.25 requires three decimal places. Slide 40’s second “Try!” includes a percent sign in a fraction-to-percentage prompt. If the intended input is 2 5/6, it converts to 283 1/3%. The last six slides cover an optional converter activity and a quiz link.","Pada slide, KPK berarti kelipatan persekutuan terkecil. Koma seperti 2,6 menandai desimal. Pada slide 27, lakukan pengurangan dari kanan ke kiri. Hasil 0,6 × 0,25 pada slide 31 memerlukan tiga tempat desimal. Soal “Try!” kedua pada slide 40 memuat tanda persen. Jika yang dimaksud adalah pecahan 2 5/6, hasilnya 283 1/3%. Enam slide terakhir berisi kegiatan konverter dan tautan kuis.")}</p>
+      <p>${tr("In the ASTS worksheet, a colon means division and a small 3 beside a radical means cube root. Q9 gives enough information for the calendar date. A weekday requires a year. Q12(b)–(e) repeat the same comparison. Q17 has answers a, b and c, and Q19 has a, c and d. Q20(b) implies liters. Q20(c) fills 25 half-kilogram bags and leaves 1/4 kg for a partly filled bag.","Pada lembar ASTS, titik dua berarti bagi dan angka 3 kecil di tanda akar berarti akar pangkat tiga. Soal 9 membutuhkan tahun untuk menentukan nama hari. Soal 12(b)–(e) mengulang perbandingan yang sama. Jawaban soal 17 adalah a, b, dan c, sedangkan soal 19 adalah a, c, dan d. Satuan soal 20(b) dipahami sebagai liter. Soal 20(c) mengisi 25 kantong setengah kilogram dan menyisakan 1/4 kg untuk satu kantong yang terisi sebagian.")}</p>
+    </details>`;
+}
+function practiceHTML() {
+  const item = practice[practiceIndex];
+  const chosen = practiceAnswers[practiceIndex];
+  const checked = chosen !== undefined;
+  return `<h2>${t('practice')}</h2><p>${t('Check each answer for immediate feedback.')}</p>
+    <label for="jump">${t('Choose a question')}</label> <select id="jump">${practice.map((q,i) => `<option value="${i}" ${i===practiceIndex?'selected':''}>${i+1}. ${reviewTopics()[q[0]][0]}</option>`).join('')}</select>
+    <form class="card" id="practice-form"><p class="source">${tr('Question','Soal')} ${practiceIndex+1} / ${practice.length} · ${reviewTopics()[item[0]][0]}</p>
+    <fieldset><legend>${promptText(item,practiceIndex,'practice')}</legend><div class="options">${choiceFields(item, practiceIndex, chosen, checked)}</div></fieldset>
+    <div id="practice-feedback" aria-live="polite">${checked ? `<p class="feedback ${chosen===item[3]?'good':'bad'}"><strong>${chosen===item[3]?t('Correct.'):t('Answer:')+' '+choiceText(item[2][item[3]])+'.'}</strong></p>` : ''}</div>
+    <div class="actions" style="margin-top:14px">${checked?`<button type="button" id="retry-question">${t('Try again')}</button>`:`<button class="primary" type="submit">${t('Check answer')}</button>`}
+    <button type="button" id="previous" ${practiceIndex===0?'disabled':''}>${t('Previous')}</button>
+    <button type="button" id="next" ${practiceIndex===practice.length-1?'disabled':''}>${t('Next')}</button></div>${solutionHTML('practice',practiceIndex)}</form>
+    <p class="small">${tr('Checked','Diperiksa')} ${Object.keys(practiceAnswers).length} / ${practice.length} · ${tr('Correct','Benar')} ${score(practice,practiceAnswers)}</p>`;
+}
+function examHTML() {
+  if (submitted) {
+    const correct = score(exam, examAnswers);
+    const answered = Object.keys(examAnswers).length;
+    return `<h2>${t('Mock exam results')}</h2><div class="card"><p class="score">${correct} / ${exam.length} · ${Math.round(correct/exam.length*100)}%</p>
+    <p>${correct} ${tr('correct','benar')} · ${answered-correct} ${tr('incorrect','salah')} · ${exam.length-answered} ${tr('blank','kosong')}</p><button class="primary" id="retake">${t('Retake exam')}</button></div>
+    <h3>${t('Answer key')}</h3>
+    <ol class="exam-list">${exam.map((item,i) => {
+      const answer = examAnswers[i];
+      const correct = answer === item[3];
+      return `<li class="${correct?'good':'bad'}"><strong>${i+1}. ${promptText(item,i,'exam')}</strong><br>${t('Your answer:')} ${choiceText(item[2][answer])}<br>${t('Correct answer:')} ${choiceText(item[2][item[3]])}${solutionHTML('exam',i)}</li>`;
+    }).join('')}</ol>`;
+  }
+  return `<h2>${t('exam')}</h2><p>${tr(`${exam.length} questions · 1 point per correct answer. Your score and answer key appear after submission.`,`${exam.length} soal · 1 poin per jawaban benar. Nilai dan kunci jawaban muncul setelah ujian dikumpulkan.`)}</p>
+    <form id="exam-form">${exam.map((item,i) => `<fieldset class="card"><legend>${i+1}. ${promptText(item,i,'exam')}</legend>
+      <div class="options">${choiceFields(item,i,examAnswers[i],false)}</div></fieldset>`).join('')}
+    <p id="exam-progress" aria-live="polite"></p>
+    <button type="submit" class="primary">${confirmBlank?t('Submit with blanks'):t('Submit exam')}</button></form>`;
+}
+function updateExamProgress() {
+  const answered = Object.keys(examAnswers).length;
+  const blank = exam.length - answered;
+  main.querySelector('#exam-progress').textContent = confirmBlank && blank
+    ? tr(`${blank} unanswered. Submit again to score blanks as zero, or finish those questions first.`,`${blank} soal belum dijawab. Selesaikan dulu atau kumpulkan lagi untuk memberi nilai nol pada soal kosong.`)
+    : tr(`${answered} of ${exam.length} answered`,`${answered} dari ${exam.length} dijawab`);
+}
+function showExercise(index) {
+  practiceIndex = index;
+  render();
+  main.querySelector('#jump').focus();
+}
+function render() {
+  document.querySelectorAll('#nav button').forEach(button => {
+    button.textContent = t(button.dataset.mode);
+    if (button.dataset.mode === mode) button.setAttribute('aria-current','page');
+    else button.removeAttribute('aria-current');
+  });
+  document.documentElement.lang = language;
+  document.title = tr('Grade 7 Maths · Semester 1','Matematika Kelas 7 · Semester 1');
+  document.querySelector('#grade').textContent = t('SEMESTER 1 · GRADE 7');
+  document.querySelector('#heading').textContent = t('Maths Study Room');
+  document.querySelector('#nav').setAttribute('aria-label',t('Learning modes'));
+  document.querySelector('#language-label span').textContent = tr('Language','Bahasa');
+  document.querySelector('#language').value = language;
+  document.querySelector('#sources').textContent = tr(
+    'Based on the 54-page lesson deck and the four-page ASTS practice sheet from Al Azhar 41 Summarecon Serpong.',
+    'Berdasarkan 54 slide pelajaran dan empat halaman lembar latihan ASTS dari Al Azhar 41 Summarecon Serpong.');
+  main.innerHTML = mode === 'facts' ? factsHTML() : mode === 'visual' ? visualHTML() : mode === 'review' ? reviewHTML() : mode === 'practice' ? practiceHTML() : examHTML();
+  if (mode === 'exam' && !submitted) updateExamProgress();
+}
+document.querySelector('#nav').addEventListener('click', event => {
+  if (event.target.dataset.mode) openMode(event.target.dataset.mode);
+});
+document.querySelector('#language').addEventListener('change', event => {
+  const selected = main.querySelector('#practice-form input:checked');
+  language = event.target.value;
+  try { localStorage.setItem('maths-language',language); } catch {}
+  render();
+  if (selected && practiceAnswers[practiceIndex] === undefined) {
+    main.querySelector(`#practice-form input[value="${selected.value}"]`).checked = true;
+  }
+});
+function showStage(index) {
+  visualStep = index;
+  render();
+  main.querySelector(`button[data-stage="${index}"]`).focus();
+}
+main.addEventListener('click', event => {
+  const { id, dataset } = event.target;
+  if (dataset.fact !== undefined) {
+    factTopic = Number(dataset.fact);
+    factQuiz = false;
+    render();
+    main.querySelector(`[data-fact="${factTopic}"]`).focus();
+  }
+  if (id === 'fact-start') startFactQuiz();
+  if (id === 'fact-study' || id === 'fact-resume') {
+    factQuiz = id === 'fact-resume';
+    renderFactsFocus();
+  }
+  if (dataset.topic !== undefined) {
+    topic = Number(dataset.topic);
+    visualStep = 0;
+    render();
+    main.querySelector(`button[data-topic="${topic}"]`).focus();
+  }
+  if (dataset.stage !== undefined) showStage(Number(dataset.stage));
+  if (id === 'visual-prev') showStage(visualStep - 1);
+  if (id === 'visual-next') showStage(visualStep + 1);
+  if (id === 'practice-topic') {
+    practiceIndex = practice.findIndex(item => item[0] === topic);
+    openMode('practice');
+  }
+  if (id === 'previous') showExercise(practiceIndex - 1);
+  if (id === 'next') showExercise(practiceIndex + 1);
+  if (id === 'retry-question') {
+    delete practiceAnswers[practiceIndex];
+    render();
+    main.querySelector('input').focus();
+  }
+  if (id === 'retake') {
+    examAnswers = {};
+    submitted = false;
+    confirmBlank = false;
+    openMode('exam');
+  }
+});
+main.addEventListener('input', event => {
+  const input = event.target;
+  if (input.form?.id === 'fact-form') factState[factTopic].answers[Number(input.name.slice(5))] = input.value;
+});
+main.addEventListener('change', event => {
+  const input = event.target;
+  if (input.id === 'fact-row') {
+    factSelectedRow = Number(input.value);
+    render();
+    main.querySelector('#fact-row').focus();
+  }
+  if (input.id === 'jump') showExercise(Number(input.value));
+  if (input.form?.id === 'exam-form') {
+    examAnswers[Number(input.name.slice(1))] = Number(input.value);
+    confirmBlank = false;
+    input.form.querySelector('button').textContent = t('Submit exam');
+    updateExamProgress();
+  }
+});
+main.addEventListener('submit', event => {
+  event.preventDefault();
+  if (event.target.id === 'fact-form') {
+    factState[factTopic].submitted = true;
+    renderFactsFocus();
+  }
+  if (event.target.id === 'practice-form') {
+    const selected = event.target.querySelector('input:checked');
+    if (!selected) {
+      main.querySelector('#practice-feedback').textContent = t('Choose an answer first.');
+      event.target.querySelector('input').focus();
+      return;
+    }
+    practiceAnswers[practiceIndex] = Number(selected.value);
+    render();
+    const feedback = main.querySelector('#practice-feedback');
+    feedback.tabIndex = -1;
+    feedback.focus();
+  }
+  if (event.target.id === 'exam-form') {
+    if (!confirmBlank && Object.keys(examAnswers).length < exam.length) {
+      confirmBlank = true;
+      event.submitter.textContent = t('Submit with blanks');
+      updateExamProgress();
+      return;
+    }
+    submitted = true;
+    openMode('exam');
+    window.scrollTo(0,0);
+  }
+});
+render();
+</script>
+</body>
+</html>
