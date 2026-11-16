@@ -60,7 +60,7 @@
 </style>
 </head>
 <body>
-<header><div><div class="headerline"><p id="grade">SEMESTER 1 · GRADE 7</p><label id="language-label"><span>Language</span> <select id="language"><option value="en">English</option><option value="id">Bahasa Indonesia</option></select></label></div><h1 id="heading">Maths Study Room</h1><nav id="nav" aria-label="Learning modes"><button data-mode="facts">Number Facts</button><button data-mode="minus">Minus &amp; negatives</button><button data-mode="visual">Visual lesson</button><button data-mode="review">Review</button><button data-mode="practice">Exercises</button><button data-mode="exam">Mock exam</button></nav></div></header>
+<header><div><div class="headerline"><p id="grade">SEMESTER 1 · GRADE 7</p><label id="language-label"><span>Language</span> <select id="language"><option value="en">English</option><option value="id">Bahasa Indonesia</option></select></label></div><h1 id="heading">Maths Study Room</h1><nav id="nav" aria-label="Learning modes"><button data-mode="facts">Number Facts</button><button data-mode="minus">Minus &amp; negatives</button><button data-mode="visual">Visual lesson</button><button data-mode="review">Review</button><button data-mode="strategy">Answer Strategy</button><button data-mode="practice">Exercises</button><button data-mode="exam">Mock exam</button></nav></div></header>
 <main id="main"></main>
 <footer id="sources">Based on the 54-page fraction, decimal, and percentage lesson deck and the four-page ASTS Mathematics 7 Semester I practice sheet from Al Azhar 41 Summarecon Serpong.</footer>
 <script>
@@ -1061,6 +1061,7 @@ const visuals = [
   ]
 ];
 const translations = {
+  strategy:'Strategi Menjawab',
   minus:'Minus dan bilangan negatif',
   facts:'Fakta bilangan',
   visual:'Belajar visual', review:'Ringkasan', practice:'Latihan', exam:'Simulasi ujian',
@@ -1078,7 +1079,7 @@ const translations = {
   'Show solving steps':'Lihat langkah penyelesaian', 'Step':'Langkah',
   'Try an exercise':'Coba latihan', 'Predict what changes, then use the controls to reveal each part.':'Tebak apa yang akan berubah, lalu gunakan tombol untuk membuka tiap tahap.'
 };
-const modeNames = {minus:"Minus & negatives",facts:"Number Facts",visual:'Visual lesson',review:'Review',practice:'Exercises',exam:'Mock exam'};
+const modeNames = {strategy:"Answer Strategy",minus:"Minus & negatives",facts:"Number Facts",visual:'Visual lesson',review:'Review',practice:'Exercises',exam:'Mock exam'};
 let language = 'en';
 try { if (localStorage.getItem('maths-language') === 'id') language = 'id'; } catch {}
 const tr = (en,id) => language === 'id' ? id : en;
@@ -1592,6 +1593,57 @@ function minusHTML() {
     ${minusSubmitted?`<button type="button" id="minus-retry">${t('Try again')}</button>`:`<button class="primary" type="submit">${t('Check answer')}</button>`}</form></article>`;
 }
 
+const strategyExamples = [
+  ['Q17 · Compare with 1/3','Soal 17 · Bandingkan dengan 1/3',
+   'Triple the numerator. If it exceeds the denominator, three copies exceed one whole, so the fraction exceeds 1/3.',
+   'Kalikan pembilang dengan tiga. Jika hasilnya melebihi penyebut, tiga salinan pecahan itu melebihi satu utuh, sehingga pecahan lebih besar dari 1/3.',
+   [['3/8','3 × 3 = 9 > 8',true],['5/13','3 × 5 = 15 > 13',true],['4/11','3 × 4 = 12 > 11',true],['2/9','3 × 2 = 6 < 9',false]]],
+  ['Q19 · Match the scale factors','Soal 19 · Cocokkan faktor pengali',
+   'Splitting each section of a fraction bar into the same number of equal pieces keeps the shaded share unchanged. Multiply the numerator and denominator by the same factor.',
+   'Membagi setiap bagian pada batang pecahan menjadi jumlah potongan sama banyak tidak mengubah bagian yang diarsir. Kalikan pembilang dan penyebut dengan faktor yang sama.',
+   [['15/18','(5 × 3)/(6 × 3) = 15/18',true],['20/26','(5 × 4)/(6 × 4) = 20/24 ≠ 20/26',false],['35/42','(5 × 7)/(6 × 7) = 35/42',true],['10/12','(5 × 2)/(6 × 2) = 10/12',true]]],
+  ['Q15 · Test each equation','Soal 15 · Uji setiap persamaan',
+   'Estimate first. Then confirm each choice with exact arithmetic. For division, you can multiply the proposed quotient by the divisor to recover the dividend.',
+   'Perkirakan dahulu. Lalu periksa setiap pilihan dengan hitungan tepat. Untuk pembagian, kalikan hasil bagi yang diusulkan dengan pembagi untuk mendapatkan kembali bilangan yang dibagi.',
+   [['4/5 + 1/2 = 13/10','8/10 + 5/10 = 13/10',true],['5/7 − 2/5 = 12/35','25/35 − 14/35 = 11/35',false],['2/5 × 5/6 = 1/3','2/5 × 5/6 = 2/6 = 1/3',true],['3/4 ÷ 2/10 = 3 3/4','15/4 × 1/5 = 3/4',true]]]
+];
+const strategyChecks = [
+  ['Q1–2 · Direction and sign','Soal 1–2 · Arah dan tanda','Mark zero and trace each move. The diver goes from −35 m to −16 m and then to −71 m. A choice saying 71 m above sea level has the wrong direction.','Tandai nol dan ikuti setiap gerakan. Penyelam bergerak dari −35 m ke −16 m lalu ke −71 m. Pilihan 71 m di atas permukaan laut salah arah.'],
+  ['Q14 · Units and remainders','Soal 14 · Satuan dan sisa','26 1/2 bottle capacities means 26 full bottles. The remaining water is half of 2/5 L, or 1/5 L. A remainder must be less than one full bottle.','26 1/2 kali kapasitas botol berarti 26 botol penuh. Sisa airnya setengah dari 2/5 L, yaitu 1/5 L. Sisa harus kurang dari kapasitas satu botol.'],
+  ['Q4 · Divisibility clues','Soal 4 · Petunjuk keterbagian','213,245 ends in 5, so it passes 5 and fails 2 and 6. Its last two digits, 45, fail 4. Its digit sum, 17, fails 3. Only 5 works.','213.245 berakhir dengan 5, sehingga habis dibagi 5, tetapi tidak habis dibagi 2 atau 6. Dua digit terakhir, 45, tidak habis dibagi 4. Jumlah digitnya 17, tidak habis dibagi 3. Hanya 5 yang memenuhi.']
+];
+const strategyQuiz = [
+  ['Which fractions are greater than 1/3? Select all that apply.','Pecahan mana yang lebih besar dari 1/3? Pilih semua yang benar.',
+    ['4/13','5/14','6/18','7/20'],null,[1,3],'15 > 14 and 21 > 20. 6/18 equals 1/3.','15 > 14 dan 21 > 20. 6/18 sama dengan 1/3.'],
+  ['Which fractions are equivalent to 5/6? Select all that apply.','Pecahan mana yang senilai dengan 5/6? Pilih semua yang benar.',
+    ['20/24','25/32','45/54','30/42'],null,[0,2],'Scale both numbers by 4 or by 9.','Kalikan pembilang dan penyebut dengan 4 atau 9.'],
+  ['A tank holds 5 1/4 L. Each bottle holds 1/2 L. Which option gives the full bottles and the remaining water?','Tangki berisi 5 1/4 L. Kapasitas tiap botol 1/2 L. Pilihan mana yang menunjukkan jumlah botol penuh dan sisa air?',
+    ['10 bottles, 1/2 L left','10 bottles, 1/4 L left','11 bottles, no water left'],
+    ['10 botol, sisa 1/2 L','10 botol, sisa 1/4 L','11 botol, tanpa sisa'],[1],
+    'Ten bottles use 5 L. Eleven would require 5 1/2 L.','Sepuluh botol memakai 5 L. Sebelas botol memerlukan 5 1/2 L.']
+];
+const strategyAnswers = strategyQuiz.map(()=>[]);
+let strategySubmitted = false;
+function strategyHTML() {
+  const letter = i => String.fromCharCode(65+i);
+  const score = strategyQuiz.filter(([, , , ,key],i)=>key.length===strategyAnswers[i].length && key.every(c=>strategyAnswers[i].includes(c))).length;
+  return `<h2>${t('strategy')}</h2><p>${tr('Read the direction, predict the answer’s sign or size, then verify the choices. Most questions on the ASTS sheet are open response. Practise writing the calculation that proves your answer.','Baca perintah, perkirakan tanda atau besar jawaban, lalu periksa pilihannya. Sebagian besar soal ASTS adalah soal uraian. Latih menulis hitungan yang membuktikan jawabanmu.')}</p>
+  ${strategyExamples.map(([en,id,why,local,items])=>`<article class="card"><h3>${tr(en,id)}</h3><p>${tr(why,local)}</p>
+  <details><summary>${tr('Check each choice','Periksa setiap pilihan')}</summary>
+  <ol type="A">${items.map(([choice,work,keep])=>`<li><strong>${choice}</strong><br>${work} · ${keep?tr('Keep','Benar'):tr('Eliminate','Salah')}</li>`).join('')}</ol>
+  <p><strong>${t('Answer:')}</strong> ${items.map((item,i)=>item[2]?letter(i):'').filter(Boolean).join(', ')}</p></details></article>`).join('')}
+  <article class="card"><h3>${tr('Eliminate choices by sign, units, or divisibility','Singkirkan pilihan berdasarkan tanda, satuan, atau keterbagian')}</h3>
+  ${strategyChecks.map(([en,id,why,local])=>`<details><summary>${tr(en,id)}</summary><p>${tr(why,local)}</p></details>`).join('')}</article>
+  <article class="card"><h3 id="strategy-practice" tabindex="-1">${tr('Quick practice','Latihan singkat')}</h3>
+  <form id="strategy-form">
+  ${strategySubmitted?`<p class="feedback good" role="status">${tr('Score','Nilai')} <strong>${score} / ${strategyQuiz.length}</strong></p>`:''}
+  ${strategyQuiz.map(([en,id,options,local,key,why,reason],i)=>`<fieldset class="example"><legend>${i+1}. ${tr(en,id)}</legend><div class="options">${tr(options,local??options).map((choice,j)=>`<label class="choice"><input type="${i===2?'radio':'checkbox'}" name="strategy-${i}" value="${j}" ${strategyAnswers[i].includes(j)?'checked':''} ${strategySubmitted?'disabled':''}> ${letter(j)}. ${choice}</label>`).join('')}</div>
+  ${strategySubmitted?`<p><strong>${t('Answer:')} ${key.map(letter).join(', ')}</strong> · ${tr(why,reason)}</p>`:''}</fieldset>`).join('')}
+  ${strategySubmitted?`<button type="button" id="strategy-retry">${t('Try again')}</button>`:`<button class="primary" type="submit">${t('Check answer')}</button>`}</form></article>
+  <article class="card"><h3>${tr('Before you submit','Sebelum mengumpulkan')}</h3>
+  <p>${tr('Check the direction, sign, size, and units. Verify close choices exactly. Q15, Q17, and Q19 each have more than one mathematically correct answer. If a test allows only one choice and several work, flag the question to your teacher.','Periksa perintah, tanda, besar bilangan, dan satuan. Uji pilihan yang nilainya berdekatan dengan hitungan tepat. Soal 15, 17, dan 19 memiliki lebih dari satu jawaban yang benar. Jika ujian hanya mengizinkan satu pilihan tetapi beberapa pilihan benar, beri tahu gurumu.')}</p></article>`;
+}
+
 const main = document.querySelector('#main');
 let mode = 'facts';
 let topic = 0;
@@ -1689,7 +1741,7 @@ function render() {
   document.querySelector('#sources').textContent = tr(
     'Based on the 54-page lesson deck and the four-page ASTS practice sheet from Al Azhar 41 Summarecon Serpong.',
     'Berdasarkan 54 slide pelajaran dan empat halaman lembar latihan ASTS dari Al Azhar 41 Summarecon Serpong.');
-  main.innerHTML = mode === 'facts' ? factsHTML() : mode === 'minus' ? minusHTML() : mode === 'visual' ? visualHTML() : mode === 'review' ? reviewHTML() : mode === 'practice' ? practiceHTML() : examHTML();
+  main.innerHTML = mode === 'facts' ? factsHTML() : mode === 'strategy' ? strategyHTML() : mode === 'minus' ? minusHTML() : mode === 'visual' ? visualHTML() : mode === 'review' ? reviewHTML() : mode === 'practice' ? practiceHTML() : examHTML();
   if (mode === 'exam' && !submitted) updateExamProgress();
 }
 document.querySelector('#nav').addEventListener('click', event => {
@@ -1711,6 +1763,12 @@ function showStage(index) {
 }
 main.addEventListener('click', event => {
   const { id, dataset } = event.target;
+  if (id === 'strategy-retry') {
+    strategyAnswers.forEach((_,i)=>strategyAnswers[i]=[]);
+    strategySubmitted = false;
+    render();
+    main.querySelector('#strategy-practice').focus();
+  }
   if (dataset.minus !== undefined) {
     minusIndex = Number(dataset.minus);
     minusRevealed = false;
@@ -1773,6 +1831,10 @@ main.addEventListener('input', event => {
 });
 main.addEventListener('change', event => {
   const input = event.target;
+  if (input.form?.id === 'strategy-form') {
+    const index = Number(input.name.slice(9));
+    strategyAnswers[index] = Array.from(input.form.querySelectorAll(`input[name="${input.name}"]:checked`), choice=>Number(choice.value));
+  }
   if (input.id === 'fact-row') {
     factSelectedRow = Number(input.value);
     render();
@@ -1788,6 +1850,11 @@ main.addEventListener('change', event => {
 });
 main.addEventListener('submit', event => {
   event.preventDefault();
+  if (event.target.id === 'strategy-form') {
+    strategySubmitted = true;
+    render();
+    main.querySelector('#strategy-practice').focus();
+  }
   if (event.target.id === 'minus-quiz') {
     minusSubmitted = true;
     render();
